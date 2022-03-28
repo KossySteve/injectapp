@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Header from './Components/Header/Header';
 import Authentication from './Pages/Authentication/Authentication';
-import Home from './Pages/Home/Home';
+import Dashboard from './Pages/Dashboard/Dashboard';
 import Jobs from './Pages/Jobs/Jobs';
 
 
@@ -13,12 +13,12 @@ function App() {
     <BrowserRouter>
       <Header />
       <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/auth" component={Authentication} />
+        <Route path="/" exact component={Dashboard} />
+        <Route path="/login" component={Authentication} />
         <Route path="/jobs" component={Jobs} />
       </Switch>
     </BrowserRouter>
   );
 }
-//find/dashboard, post, sign up, Authentication, login
+//find/dashboard, post, Authentication
 export default App

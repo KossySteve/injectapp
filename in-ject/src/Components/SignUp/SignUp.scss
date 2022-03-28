@@ -1,0 +1,69 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+
+.add-new-warehouse {
+  margin-top: 4rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  @include tablet {
+    margin: 1.5rem 0;
+  }
+
+  &__container {
+    width: 100%;
+    padding: 0 4rem;
+    @include tablet {
+      padding: 0 10rem;
+    }
+    @include desktop {
+      padding: 0 25rem;
+    }
+  }
+  &__title {
+    margin: 5rem 0 0;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid $inject-indigo;
+  }
+
+  &__subtitle {
+    margin: 2rem 0;
+    color: $inject-indigo;
+  }
+
+  &__button-box {
+    padding: 1rem 1.5rem 1rem;
+    display: flex;
+    flex-direction: row;
+    background-color: $inject-black;
+    //border: 1px solid $inject-indigo;
+    border-left: none;
+    border-right: none;
+
+    @include tablet {
+      justify-content: center;
+    }
+  }
+
+  &__button-right {
+    width: 100%;
+    margin-left: 0.5rem;
+
+    @include tablet {
+      width: auto;
+    }
+  }
+
+  &__button-left {
+    width: 100%;
+    margin-right: 0.5rem;
+
+    @include tablet {
+      width: auto;
+    }
+  }
+
+  &__input {
+    margin-bottom: 0.8rem;
+  }
+}
