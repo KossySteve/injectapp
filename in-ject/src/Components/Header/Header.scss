@@ -1,0 +1,73 @@
+@use '../../styles/partials/colors' as *;
+@use '../../styles/partials/mixins' as *;
+
+.header {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: $graphite;
+  height: 12rem;
+  margin-bottom: 1rem;
+
+  @include tablet {
+    flex-direction: row;
+    align-items: middle;
+    margin-top: -3rem;
+    justify-content: center;
+    padding: 0 3%;
+    margin-bottom: 3rem;
+  }
+
+  @include desktop {
+    padding: 0 8%;
+  }
+
+  &__logo {
+    margin: 1.2rem;
+    width: 10rem;
+
+    @include tablet {
+      margin-top: 1.5rem;
+    }
+  }
+
+  &__container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+
+    > * + * {
+      margin-left: 1rem;
+    }
+
+    @include tablet {
+      justify-content: flex-end;
+    }
+  }
+
+  &__button {
+    width: 100%;
+    height: 2.5rem;
+    color: $white;
+    background-color: $graphite;
+    border: none;
+    border-radius: 50px;
+    font-size: 0.92rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include tablet {
+      width: 20%;
+    }
+
+    &:hover {
+      background-color: $instock-black;
+    }
+
+    &--active {
+      background-color: $instock-black !important;
+    }
+  }
+}
