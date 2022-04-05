@@ -1,12 +1,11 @@
 import classNames from 'classnames';
 import './Input.scss';
-import searchIcon from '../../assets/icons/search-24px.svg';
-import errorIcon from '../../assets/icons/error-24px.svg';
+
 
 const Input = ({
   id,
   name,
-  type = 'text',
+  type,
   value,
   placeholder,
   error,
@@ -30,17 +29,7 @@ const Input = ({
        // placeholder={type === 'search' ? 'Search...' : placeholder}
         onChange={handleChange}
       />
-      {type === 'search' && (
-        <span className="input__inline-icon">
-          <img src={searchIcon} alt="Search" />
-        </span>
-      )}
-      {error && (
-        <span className="input__error">
-          <img className="input__icon" src={errorIcon} alt="Error" />
-          {error}
-        </span>
-      )}
+  
     </div>
   );
 };

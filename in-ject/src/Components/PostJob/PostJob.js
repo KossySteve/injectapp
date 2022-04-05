@@ -6,15 +6,19 @@ import formNotValid from "../../utils/FormValidation";
 import './PostJob.scss'
 
 function PostJob() {
-    const submitHandler = (e) => {
+    const submitJobHandler = (e) => {
         e.preventDefault();
         let newUser = {
-          name: e.target.name.value,
+          company: e.target.company.value,
+          website: e.target.website.value,
           email: e.target.email.value,
-          password: e.target.password.value,
           position: e.target.position.value,
-          confirmPassword: e.target.confirmPassword.value,
-          resume: e.target.resume.value,
+          phone: e.target.phone.value,
+          address: e.target.address.value,
+          startDate: e.target.startDate.value,
+          endDate: e.target.endDate.value,
+          description: e.target.description.value,
+          pay: e.target.pay.value,
         };
         formNotValid(newUser) ? alert("Failed to upload, complete form") : 
         // api
@@ -27,10 +31,12 @@ function PostJob() {
         //     console.log(err);
         //   });
         e.target.reset();
+
+  
       };
   return (
     <div>
-      <form onSubmit={submitHandler}>
+      <form onSubmit={submitJobHandler}>
         <div className="add-new-warehouse ">
           <section className="add-new-warehouse__container form__container--postjob">
             <h2 className="add-new-warehouse__title">Post A Job</h2>
@@ -43,21 +49,25 @@ function PostJob() {
             </div>
             <div className="add-new-warehouse__input">
               <Label title="Location" />
-              <Input name="location" placeholder="" />
+              <Input name="address" placeholder="" />
             </div>
             <div className="add-new-warehouse__input">
               <Label title="Start Date" />
-              <Input name="startDate" placeholder="" />
+              <Input type='datetime-local' name="startDate" placeholder="" />
             </div>
             <div className="add-new-warehouse__input">
               <Label title="End Date" />
-              <Input name="endDate" placeholder="" />
+              <Input type='datetime-local' name="endDate" placeholder="" />
+            </div>
+            <div className="add-new-warehouse__input">
+              <Label title="Contact Email" />
+              <Input name="email" placeholder="" />
             </div>
             <div className="add-new-warehouse__input">
               <Label title="Position" />
               <Dropdown
                 items={["Doctor", "Pharmacist", "Nurse", "Care giver"]}
-                name="email"
+                name="position"
                 placeholder=""
               />
             </div>
@@ -65,21 +75,16 @@ function PostJob() {
               <Label title="Pay" />
               <Input name="pay" placeholder="" />
             </div>
-            <div className="add-new-warehouse__input">
-              <Label title="Job Email" />
-              <Input name="email" placeholder="" />
-            </div>
+           
             <div className="add-new-warehouse__input">
               <Label title="Job Description" />
               <Textarea name="description" placeholder="" />
             </div>
-           
-          
           </section>
         </div>
         <div className="add-new-warehouse__button-box">
           <div className="add-new-warehouse__button-left">
-            <Button title="Cancel" />
+            <input type="reset" value="Cancel"  className="button button--reset" />
           </div>
           <div className="add-new-warehouse__button-right">
             <Button title="Submit" />

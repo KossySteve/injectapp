@@ -27,7 +27,7 @@ function Login(props) {
             console.log('Hello');
         })
         .catch((err) => {console.log(err)});
-       // e.target.reset();
+       e.target.reset();
       
   };
 
