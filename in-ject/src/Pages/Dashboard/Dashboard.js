@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import axios from "axios";
-import'./Dashboard.scss'
+import "./Dashboard.scss";
+import Button from "../../Components/Button/Button";
+import Carousel from "../../Components/Carousel/Carousel";
+import PostJob from "../../Components/PostJob/PostJob";
+import FindJob from "../../Components/FindJob/FindJob";
+import Profile from "../../Components/Profile/Profile";
 
 export class Dashboard extends Component {
   state = {
@@ -32,31 +37,12 @@ export class Dashboard extends Component {
     ) : (
       <section>
         <div className="dashboard">
-          {
-            //this.state.showSideNav && (
-            <div id="mySidebar" className="sidebar">
-              <button
-                className="closebtn"
-                onClick={() => this.setState({ showSideNav: false })}
-              >
-                ×
-              </button>
-              <h3 href="#">Name</h3>
-              <h3 href="#">Email@gmail.com</h3>
-              <h3 href="#">Position</h3>
-              <h3 href="#">Resume.pdf</h3>
-            </div>
-            // )
-          }
-          <div className="main">
-            <button
-              className="openbtn"
-              onClick={() => this.setState({ showSideNav: false })}
-            >
-              ☰ View Profile
-            </button>
-            {/* <h2>{`Welcome ${this.state.userInfo.name}`}</h2> */}
-            <p>Hello</p>
+          <Profile />
+          <div className="dashboard__main">
+            <h2>{`Welcome Dr ${(this.state.userInfo.name =
+              "Paul McKinsey")}`}</h2>
+            {/* <FindJob /> */}
+            <PostJob />
           </div>
         </div>
       </section>

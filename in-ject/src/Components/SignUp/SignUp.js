@@ -37,12 +37,20 @@ function SignUp() {
           <h2 className="add-new-warehouse__title">Sign Up</h2>
           <p className="add-new-warehouse__subtitle h4">Register to become part of the iN-JECT Community</p>
           <div className="add-new-warehouse__input">
-            <Label title="Name" />
-            <Input name="name" placeholder="" />
+            <Label title="First Name" />
+            <Input name="firstName" placeholder="" />
+          </div>
+          <div className="add-new-warehouse__input">
+            <Label title="Last Name" />
+            <Input name="lastName" placeholder="" />
           </div>
           <div className="add-new-warehouse__input">
             <Label title="Email" />
             <Input name="email" placeholder="" />
+          </div>
+          <div className="add-new-warehouse__input">
+            <Label title="Phone" />
+            <Input name="phone" placeholder="" />
           </div>
           <div className="add-new-warehouse__input">
             <Label title="Position" />
@@ -61,9 +69,17 @@ function SignUp() {
             <Input name="confirmPassword" placeholder="" />
           </div>
           <div className="add-new-warehouse__input">
+            <Label title="LinkedIn Url" />
+            <Input name="linkedUrl" placeholder="" />
+          </div>
+          <div className="add-new-warehouse__input">
+            <Label title="Resume Link" />
+            <Input name="resumeUrl" placeholder="" />
+          </div>
+          {/* <div className="add-new-warehouse__input">
             <Label title="Resume" />
             <Input type="file" name="resume" placeholder="" />
-          </div>
+          </div> */}
         </section>
       </div>
       <div className="add-new-warehouse__button-box">

@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../../assets/logo/InStock-Logo.svg";
+import Logo from "../../assets/logo/inJECT.png";
 import "./Header.scss";
 import { Link } from "react-router-dom";
 import classNames from "classnames";

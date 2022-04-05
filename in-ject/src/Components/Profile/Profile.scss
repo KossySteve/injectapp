@@ -1,0 +1,33 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/global" as *;
+
+.dashboard {
+  &__sidebar {
+    border: $inject-indigo 10px solid;
+    border-top: 0;
+    border-right: 0;
+    padding: 4rem 2rem;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    @include tablet {
+      width: 25%;
+    }
+    &-heading {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      font-size: 1.5rem;
+      @include tablet {
+        flex-direction: column;
+        font-size: 1.2rem;
+      }
+    }
+    &-text {
+      color: $inject-indigo;
+    }
+  }
+}

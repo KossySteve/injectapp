@@ -1,58 +1,48 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/global" as *;
+
 .dashboard {
-    display: flex;
-    border: red 5px solid;
-    margin-top: 4rem;
+  display: flex;
+  flex-flow: column nowrap;
+  margin-top: 5.5rem;
+  @include tablet {
+    flex-flow: row nowrap;
+  }
+
+  &__main {
+    width: 100%;
+    padding: 0 1rem;
+    box-sizing: border-box;
+    border: grey 1px solid;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 0;
+    
+    @include tablet {
+      padding: 2rem 4rem;
+      display: flex;
+      flex-direction: column;
+    }
+    @include desktop {
+       display: block;
+       text-align: center;
+      }
+   
+  }
+}
+.viewbtn {
+}
+.closebtn {
+  padding: 0 2rem;
+  margin-left: auto;
+  &:hover {
+    border: 1px solid $inject-indigo;
+  }
 }
 
-.sidebar {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-  }
-  
-  .sidebar a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-  }
-  
-  .sidebar a:hover {
-    color: #f1f1f1;
-  }
-  
-  .sidebar .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-  }
-  
-  .openbtn {
-    font-size: 20px;
-    cursor: pointer;
-    background-color: #111;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-  }
-  
-  .openbtn:hover {
-    background-color: #444;
-  }
-  
-  .main {
-    transition: margin-left .5s;
-    padding: 16px;
-  }  
-
+//   .main {
+//     transition: margin-left .5s;
+//     padding: 16px;
+//     border: red 5px solid;
+//   }
