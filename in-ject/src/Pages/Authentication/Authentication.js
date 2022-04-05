@@ -7,11 +7,10 @@ function Authentication() {
   return (
     <BrowserRouter>
       <Switch>
+        <Route path="/" component={Login} />
         <Route path="/register" component={SignUp} />
-        <Route path="/login" component={Login} />
       </Switch>
     </BrowserRouter>
-    // <SignUp />
   );
 }
 

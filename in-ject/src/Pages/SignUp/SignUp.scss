@@ -12,7 +12,7 @@
 
   &__container {
     width: 100%;
-    padding: 0 4rem;
+    padding: 0 2rem;
     @include tablet {
       padding: 0 10rem;
     }
@@ -21,7 +21,7 @@
     }
   }
   &__title {
-    margin: 5rem 0 0;
+    margin: 0;
     padding-bottom: 1rem;
     border-bottom: 1px solid $inject-indigo;
   }
@@ -66,4 +66,9 @@
   &__input {
     margin-bottom: 0.8rem;
   }
+}
+
+.form--signup {
+  padding-top: 6rem;
+  border: red 5px solid;
 }

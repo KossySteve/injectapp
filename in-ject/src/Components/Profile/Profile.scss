@@ -1,11 +1,11 @@
 @use "../../styles/partials/colors" as *;
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/global" as *;
-
+//$inject-indigo
 .dashboard {
   &__sidebar {
-    border: $inject-indigo 10px solid;
-    border-top: 0;
+
+    border: 0;
     border-right: 0;
     padding: 4rem 2rem;
     display: flex;
@@ -25,9 +25,26 @@
         flex-direction: column;
         font-size: 1.2rem;
       }
+      &--email{
+        @extend .dashboard__sidebar-heading;
+        border-top: 1px solid grey;
+        width:100%;
+        padding-top: 2rem;
+      }
+      &--position{
+        @extend .dashboard__sidebar-heading;
+        border-bottom: 1px solid grey;
+        padding-bottom:2rem;
+        width:100%;
+      }
     }
     &-text {
       color: $inject-indigo;
+    &--profile {
+      @extend .dashboard__sidebar-text;
+      border-bottom: 1px solid grey;
+      padding-bottom:0.5rem;
+    }
     }
   }
 }

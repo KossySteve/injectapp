@@ -31,10 +31,10 @@ function PostJob() {
   return (
     <div>
       <form onSubmit={submitHandler}>
-        <div className="add-new-warehouse">
-          <section className="add-new-warehouse__container">
+        <div className="add-new-warehouse ">
+          <section className="add-new-warehouse__container form__container--postjob">
             <h2 className="add-new-warehouse__title">Post A Job</h2>
-            <p className="add-new-warehouse__subtitle h4">
+            <p className="add-new-warehouse__subtitle ">
               Submit a job and get professionals from the iN-JECT Community quickly
             </p>
             <div className="add-new-warehouse__input">
@@ -66,13 +66,14 @@ function PostJob() {
               <Input name="pay" placeholder="" />
             </div>
             <div className="add-new-warehouse__input">
+              <Label title="Job Email" />
+              <Input name="email" placeholder="" />
+            </div>
+            <div className="add-new-warehouse__input">
               <Label title="Job Description" />
               <Textarea name="description" placeholder="" />
             </div>
-            <div className="add-new-warehouse__input">
-              <Label title="Job Email" />
-              <Textarea name="email" placeholder="" />
-            </div>
+           
           
           </section>
         </div>

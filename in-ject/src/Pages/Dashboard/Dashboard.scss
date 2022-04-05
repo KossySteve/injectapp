@@ -15,9 +15,8 @@
     padding: 0 1rem;
     box-sizing: border-box;
     border: grey 1px solid;
-    border-top: 0;
-    border-right: 0;
-    border-bottom: 0;
+    margin: 4rem;
+    border-radius: 10px;
     
     @include tablet {
       padding: 2rem 4rem;
@@ -28,7 +27,9 @@
        display: block;
        text-align: center;
       }
-   
+  }
+  &__heading {
+    background-color: #000000;
   }
 }
 .viewbtn {

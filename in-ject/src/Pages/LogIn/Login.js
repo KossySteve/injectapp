@@ -1,39 +1,39 @@
 import React from "react";
-import Button from "../Button/Button";
-import Input from "../Input/Input";
-import Label from "../Label/Label";
-import formNotValid from "../../utils/FormValidation";
+import { Input, Dropdown } from "../../Components/Input/Input";
+import Button from "../../Components/Button/Button";
+import Label from "../../Components/Label/Label";
+import axios from 'axios';
+import formNotValid from "../../utils/FormValidation"
 import { Link } from "react-router-dom";
-import './Login.scss'
+import './Login.scss';
 
-function Login() {
-  const submitHandler = (e) => {
+function Login(props) {
+  const handleLogin = (e) => {
     e.preventDefault();
-    let newUser = {
-      name: e.target.name.value,
+
+    let user = {
       email: e.target.email.value,
       password: e.target.password.value,
-      position: e.target.position.value,
-      confirmPassword: e.target.confirmPassword.value,
-      resume: e.target.resume.value,
     };
-    formNotValid(newUser)
+
+    formNotValid(user)
       ? alert("Failed to upload, complete form")
-      : // api
-        //   .addWarehouse(newUser)
-        //   .then((res) => {
-        //     console.log(res.data);
-        //     history.push(`/login/${res.data.id}`);
-        //   })
-        //   .catch((err) => {
-        //     console.log(err);
-        //   });
-        e.target.reset();
+      :  axios.post('http://localhost:5050/users/login', user)
+        .then(res => {
+            console.log(res);
+            let token = res.data.token;
+            sessionStorage.setItem('authToken', token);
+            props.history.push('/');
+            console.log('Hello');
+        })
+        .catch((err) => {console.log(err)});
+       // e.target.reset();
+      
   };
 
   return (
-    <form onSubmit={submitHandler}>
-      <div className="add-new-warehouse">
+    <form onSubmit={handleLogin}>
+      <div className="add-new-warehouse form--login">
         <section className="add-new-warehouse__container">
           <h2 className="add-new-warehouse__subtitles">Login Up</h2>
 

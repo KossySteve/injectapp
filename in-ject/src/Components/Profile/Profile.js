@@ -5,16 +5,16 @@ import "./Profile.scss";
 function Profile() {
   return (
     <div className="dashboard__sidebar">
-      <span className="dashboard__sidebar-text">Profile</span>
+      <span className="dashboard__sidebar-text--profile">Profile</span>
       <h3 className="dashboard__sidebar-heading">
         <span className="dashboard__sidebar-title">Name:</span>{" "}
         <span className="dashboard__sidebar-text">Dr Paul McKinsey</span>
       </h3>
-      <h3 className="dashboard__sidebar-heading">
+      <h3 className="dashboard__sidebar-heading--email">
         <span className="dashboard__sidebar-title">Email:</span>{" "}
         <span className="dashboard__sidebar-text">mckinny@gmail.com</span>
       </h3>
-      <h3 className="dashboard__sidebar-heading">
+      <h3 className="dashboard__sidebar-heading--position">
         <span className="dashboard__sidebar-title">Position:</span>
         <span className="dashboard__sidebar-text">Doctor</span>
       </h3>
