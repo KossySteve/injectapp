@@ -23,7 +23,7 @@ export class Dashboard extends Component {
             },
           })
           .then((res) => {
-            console.log(res);
+            console.log(res.data);
             this.setState({
               userInfo: res.data,
               isLoading: false,
@@ -39,12 +39,13 @@ export class Dashboard extends Component {
         <div className="dashboard">
           
           <div className="dashboard__main">
-            <h2 className="dashboard__heading">{`Welcome Dr ${(this.state.userInfo.name ="Paul McKinsey")}`}</h2>
+            <h2 className="dashboard__heading">{`Welcome Dr ${this.state.userInfo.name}`}</h2>
             <Switch>
-              <Route path="/dashboard" exact  component={FindJob} />
+              <Route path="/dashboard" exact render={() => <FindJob userInfo={this.state.userInfo} />}  />
               <Route path="/dashboard/postjob" component={PostJob} />
               <Route path="/dashboard/jobsbyyou" component={JobsByYou} />
             </Switch>
+
           </div>
           <Profile />
         </div>

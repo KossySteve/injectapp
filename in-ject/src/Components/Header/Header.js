@@ -15,10 +15,10 @@ function Header() {
         <Link to="/" className='header__button'>
           Find Jobs
         </Link>
-        <Link to="dashboard/postjob" className='header__button'>
+        <Link to="/dashboard/postjob" className='header__button'>
           Post Jobs
         </Link>
-        <Link to="dashboard/jobsbyyou" className='header__button'>
+        <Link to="/dashboard/jobsbyyou" className='header__button'>
           Jobs By You
         </Link>
         <Link to="/about" className='header__button'>

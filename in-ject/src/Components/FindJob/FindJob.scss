@@ -3,7 +3,8 @@
 @use "../../styles/partials/global" as *;
 
 
-.dashboard__main {
+.dashboard {
+  &__main {
     &-jobs {
         display: flex;
         justify-content: space-between;
@@ -20,7 +21,7 @@
         justify-content: space-between;
         align-items: center;
         flex-direction: column;
-        height: 50vh;
+        //height: 50vh;
         box-sizing: border-box;
         margin: 1rem 0;
         @include tablet {
@@ -29,5 +30,12 @@
         @include desktop {
           width: 28%;
         }
+      
       }
+      &-text{
+        font-size: 1rem;
+       // border: red solid 5px;
+        padding: 0;
+      }
+    }
 }

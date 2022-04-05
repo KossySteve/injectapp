@@ -5,7 +5,7 @@
 .button {
   @extend .h3;
   width: 100%;
-  height: 2.5rem;
+  height: 2rem;
   color: $white;
   background-color: $inject-black;
   border: 2px solid $inject-indigo;
@@ -13,11 +13,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
+  padding: 0.5rem 2.5rem;
  
   @include tablet {
     width: auto;
-    height: 2.375rem;
+    
   }
 
   &:hover {

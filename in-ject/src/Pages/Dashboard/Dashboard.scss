@@ -6,6 +6,7 @@
   display: flex;
   flex-flow: column nowrap;
   margin-top: 5.5rem;
+  background-color: $inject-graphite;
   @include tablet {
     flex-flow: row nowrap;
   }
@@ -14,8 +15,9 @@
     width: 100%;
     padding: 0 1rem;
     box-sizing: border-box;
-    border: grey 1px solid;
-    margin: 4rem;
+    background-color: $inject-black;
+    //border: $inject-indigo 1px solid;
+    margin: 2rem 4rem;
     border-radius: 10px;
     
     @include tablet {
@@ -32,15 +34,7 @@
     background-color: #000000;
   }
 }
-.viewbtn {
-}
-.closebtn {
-  padding: 0 2rem;
-  margin-left: auto;
-  &:hover {
-    border: 1px solid $inject-indigo;
-  }
-}
+
 
 //   .main {
 //     transition: margin-left .5s;
