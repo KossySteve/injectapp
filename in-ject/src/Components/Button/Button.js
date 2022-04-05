@@ -9,5 +9,4 @@ function Button({title, className, onClick }) {
     </button>
   )
 }
-
 export default Button;

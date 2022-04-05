@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./Dashboard.scss";
-import Button from "../../Components/Button/Button";
 import PostJob from "../../Components/PostJob/PostJob";
 import FindJob from "../../Components/FindJob/FindJob";
 import Profile from "../../Components/Profile/Profile";
 import JobsByYou from "../../Components/JobsByYou/JobsByYou";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 
 export class Dashboard extends Component {
   state = {
@@ -23,7 +22,7 @@ export class Dashboard extends Component {
             },
           })
           .then((res) => {
-           // console.log(res.data);
+            // console.log(res.data);
             this.setState({
               userInfo: res.data,
               isLoading: false,
@@ -37,17 +36,27 @@ export class Dashboard extends Component {
     ) : (
       <section>
         <div className="dashboard">
-          
           <div className="dashboard__main">
-            <h2 className="dashboard__heading">{`Welcome Dr ${this.state.userInfo.name}`}</h2>
+            <h2 className="dashboard__heading">
+              {`Welcome ${this.state.userInfo.position} ${this.state.userInfo.name}`}{" "}
+            </h2>
             <Switch>
-              <Route path="/dashboard" exact render={() => <FindJob userInfo={this.state.userInfo} />}  />
-              <Route path="/dashboard/postjob" component={PostJob} />
-              <Route path="/dashboard/jobsbyyou" component={JobsByYou} />
+              <Route
+                path="/dashboard"
+                exact
+                render={() => <FindJob userInfo={this.state.userInfo} />}
+              />
+              <Route
+                path="/dashboard/postjob"
+                render={() => <PostJob userInfo={this.state.userInfo} />}
+              />
+              <Route
+                path="/dashboard/jobsbyyou"
+                render={() => <JobsByYou userInfo={this.state.userInfo} />}
+              />
             </Switch>
-
           </div>
-          <Profile />
+          <Profile userInfo={this.state.userInfo} />
         </div>
       </section>
     );

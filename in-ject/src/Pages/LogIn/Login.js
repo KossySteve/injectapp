@@ -1,5 +1,5 @@
 import React from "react";
-import { Input, Dropdown } from "../../Components/Input/Input";
+import { Input } from "../../Components/Input/Input";
 import Button from "../../Components/Button/Button";
 import Label from "../../Components/Label/Label";
 import axios from 'axios';

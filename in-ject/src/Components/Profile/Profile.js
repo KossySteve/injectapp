@@ -1,30 +1,29 @@
 import React from "react";
 import Button from "../Button/Button";
 import "./Profile.scss";
+import { Link } from "react-router-dom";
 
-function Profile() {
+function Profile({userInfo}) {
   return (
     <div className="dashboard__sidebar">
       <span className="dashboard__sidebar-text--profile">Profile</span>
       <h3 className="dashboard__sidebar-heading">
         <span className="dashboard__sidebar-title">Name:</span>{" "}
-        <span className="dashboard__sidebar-text">Dr Paul McKinsey</span>
+        <span className="dashboard__sidebar-text">{` ${userInfo.position} ${userInfo.name}`}</span>
       </h3>
       <h3 className="dashboard__sidebar-heading--email">
         <span className="dashboard__sidebar-title">Email:</span>{" "}
-        <span className="dashboard__sidebar-text">mckinny@gmail.com</span>
+        <span className="dashboard__sidebar-text">{`${userInfo.email}`}</span>
       </h3>
       <h3 className="dashboard__sidebar-heading--position">
         <span className="dashboard__sidebar-title">Position:</span>
-        <span className="dashboard__sidebar-text">Doctor</span>
+        <span className="dashboard__sidebar-text">{`${userInfo.position}`}</span>
       </h3>
       <h3 className="dashboard__sidebar-heading">
-        <span className="dashboard__sidebar-title">Resume:</span>
-        <span className="dashboard__sidebar-text">Resume.pdf</span>
+        <a className="dashboard__sidebar-text--linkedIn" onClick={(e) => window.open(`${userInfo.linkedInUrl}`)}>LinkedIn Profile</a>
       </h3>
       <Button
         className="closebtn"
-        onClick={''}
         title="Edit"
       />
     </div>

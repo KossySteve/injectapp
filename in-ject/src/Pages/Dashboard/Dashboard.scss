@@ -31,7 +31,9 @@
       }
   }
   &__heading {
-    background-color: #000000;
+    background-color: $inject-graphite;
+    padding: 0.5rem 0;
+    border-radius: 10px;
   }
 }
 

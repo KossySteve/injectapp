@@ -26,8 +26,9 @@ function SignUp(props) {
   })
   .catch((err) => {
         console.log(err);
+        e.target.reset();
       });
-   // e.target.reset();
+   
   };
 
   return (

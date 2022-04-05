@@ -1,17 +1,3 @@
-@use "../../styles/partials/colors" as *;
-@use "../../styles/partials/mixins" as *;
-@use "../../styles/partials/global" as *;
 
-table {
-  border-collapse: collapse;
-  width: 100%;
-  border: red solid 5px;
-}
 
-th, td {
-  padding: 8px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-}
 
-tr:hover {background-color: $inject-graphite;}

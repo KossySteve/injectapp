@@ -29,27 +29,33 @@
         @extend .dashboard__sidebar-heading;
         border-top: 1px solid grey;
         width:100%;
-        padding-top: 2rem;
+        padding-top: 1rem;
       }
       &--position{
         @extend .dashboard__sidebar-heading;
         border-bottom: 1px solid grey;
-        padding-bottom:2rem;
+        padding-bottom:1rem;
         width:100%;
       }
     }
     &-text {
       color: $inject-indigo;
+      font-size: 0.95rem;
+      font-weight: 100;
     &--profile {
       @extend .dashboard__sidebar-text;
       border-bottom: 1px solid grey;
       padding-bottom:0.5rem;
     }
+    &--linkedIn{
+      @extend .dashboard__sidebar-text;
+      color: $inject-indigo;
+      cursor: pointer;
     }
+   }
   }
 }
-.viewbtn {
-}
+
 .closebtn {
   padding: 0 2rem;
   margin-left: auto;
