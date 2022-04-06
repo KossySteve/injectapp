@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router";
 import "./JobsByYou.scss";
 import axios from "axios";
 import Button from "../Button/Button";
@@ -10,9 +11,35 @@ export class JobsByYou extends Component {
     isLoading: true,
     showApplicantTable: false,
     applicants: [],
+   // jobforUpdate: {}
   };
   viewApplicants = (id) => {
-    //get users applied to the job by jobs/apply/job.id
+    //get users applied to the job
+    console.log("job id", id);
+    axios
+      .get(`http://localhost:5050/jobs/apply/${id}`)
+      .then((res) => {
+        console.log(res.data);
+        this.setState({
+          applicants: res.data,
+          showApplicantTable: !this.state.showApplicantTable,
+        });
+        console.log("applicants", this.state.applicants);
+      })
+      .catch((err) => {
+        console.log("error", err);
+      });
+  };
+
+  updateJob = (job) => {
+    //update specific job 
+    //console.log("Hello", job);
+    this.props.history.push('/dashboard/postjob', [job]);
+    
+  };
+
+  deleteJob = (id) => {
+    //delete specific job
     console.log("job id", id);
     axios
       .get(`http://localhost:5050/jobs/apply/${id}`)
@@ -54,10 +81,21 @@ export class JobsByYou extends Component {
               {`${job.position}`} position{" "}
               <span>{`posted for ${job.startDate.substring(0, 10)}`}</span>
             </h4>
-            <Button
-              title="View Applicants"
-              onClick={() => this.viewApplicants(job.id)}
-            />
+            <div className="post__btns">
+              <Button
+                title={
+                  this.state.showApplicantTable
+                    ? "Close Table"
+                    : "View Applicants"
+                }
+                onClick={() => this.viewApplicants(job.id)}
+              />
+              <Button title="Edit Job" onClick={() => this.updateJob(job)} />
+              <Button
+                title="Delete Job"
+                onClick={() => this.deleteJob(job.id)}
+              />
+            </div>
           </div>
         ))}
         {this.state.showApplicantTable && (
@@ -87,4 +125,4 @@ export class JobsByYou extends Component {
   }
 }
 
-export default JobsByYou;
+export default withRouter(JobsByYou);

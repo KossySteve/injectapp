@@ -6,8 +6,16 @@ import Label from "../Label/Label";
 import formNotValid from "../../utils/FormValidation";
 import "./PostJob.scss";
 import Swal from "sweetalert2";
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 function PostJob({userInfo}) {
+  const location = useLocation();
+
+  useEffect(() => {
+     console.log(location.state);
+  }, [location]);
+
   const submitJobHandler = (e) => {
     e.preventDefault();
     let newJob = {
@@ -38,6 +46,7 @@ function PostJob({userInfo}) {
           e.target.reset();
   };
   return (
+  
     <div>
       <form onSubmit={submitJobHandler}>
         <div className="add-new-warehouse ">

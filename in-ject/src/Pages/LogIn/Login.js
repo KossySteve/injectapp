@@ -6,6 +6,7 @@ import axios from 'axios';
 import formNotValid from "../../utils/FormValidation"
 import { Link } from "react-router-dom";
 import './Login.scss';
+import Swal from "sweetalert2";
 
 function Login(props) {
   const handleLogin = (e) => {
@@ -17,7 +18,7 @@ function Login(props) {
     };
 
     formNotValid(user)
-      ? alert("Failed to upload, complete form")
+      ? Swal.fire("Failed to upload, complete form")
       :  axios.post('http://localhost:5050/users/login', user)
         .then(res => {
             console.log(res);
