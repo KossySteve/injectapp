@@ -4,6 +4,7 @@ import "./JobsByYou.scss";
 import axios from "axios";
 import Button from "../Button/Button";
 import Table from "../Table/Table";
+import Swal from "sweetalert2";
 
 export class JobsByYou extends Component {
   state = {
@@ -32,7 +33,7 @@ export class JobsByYou extends Component {
   };
 
   updateJob = (job) => {
-      //push to the job to UpdateJob Component to update job
+    //push to the job to UpdateJob Component to update job
     this.props.history.push("/dashboard/updatejob", [job]);
   };
 
@@ -40,17 +41,13 @@ export class JobsByYou extends Component {
     //delete specific job
     console.log("job id", id);
     axios
-      .get(`http://localhost:5050/jobs/apply/${id}`)
+      .delete(`http://localhost:5050/jobs/${id}`)
       .then((res) => {
-        console.log(res.data);
-        this.setState({
-          applicants: res.data,
-          showApplicantTable: !this.state.showApplicantTable,
-        });
-        console.log("applicants", this.state.applicants);
+        Swal.fire("You deleted this job successfully");
+        this.props.history.push("/dashboard/jobsbyyou");
       })
       .catch((err) => {
-        console.log("error", err);
+        console.log(err);
       });
   };
 
@@ -72,7 +69,7 @@ export class JobsByYou extends Component {
       <div>Jobs are Loading...</div>
     ) : (
       <section>
-        {this.state.myJobs.map((job, index) => (
+        {this.state.myJobs.length ? this.state.myJobs.map((job, index) => (
           //include time of posting to database
           <div key={index} className="post">
             <h4 className="post__heading">
@@ -95,29 +92,32 @@ export class JobsByYou extends Component {
               />
             </div>
           </div>
-        ))}
-        {this.state.showApplicantTable && (
-          <table className="table">
-            <thead>
-              <tr className="table__row">
-                <th className="table__heading">Applicant</th>
-                <th className="table__heading">Contact</th>
-              </tr>
-            </thead>
-            <tbody>
-              {this.state.applicants.map((applicant, index) => (
-                <Table
-                  name={applicant.name}
-                  email={applicant.email}
-                  phone={applicant.phone}
-                  linkedInUrl={applicant.linkedInUrl}
-                  resumeUrl={applicant.resumeUrl}
-                  key={index}
-                />
-              ))}
-            </tbody>
-          </table>
-        )}
+        )) : <h2>No Jobs Posted</h2>}
+        {this.state.showApplicantTable &&
+          (this.state.applicants.length ? (
+            <table className="table">
+              <thead>
+                <tr className="table__row">
+                  <th className="table__heading">Applicant</th>
+                  <th className="table__heading">Contact</th>
+                </tr>
+              </thead>
+              <tbody>
+                {this.state.applicants.map((applicant, index) => (
+                  <Table
+                    name={applicant.name}
+                    email={applicant.email}
+                    phone={applicant.phone}
+                    linkedInUrl={applicant.linkedInUrl}
+                    resumeUrl={applicant.resumeUrl}
+                    key={index}
+                  />
+                ))}
+              </tbody>
+            </table>
+          ) : (
+            <h2>No Applicants</h2>
+          ))}
       </section>
     );
   }
