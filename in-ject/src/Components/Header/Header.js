@@ -2,7 +2,7 @@ import React from "react";
 import Logo from "../../assets/logo/inJECT.png";
 import "./Header.scss";
 import { Link } from "react-router-dom";
-import classNames from "classnames";
+
 
 function Header() {
  
@@ -21,7 +21,7 @@ function Header() {
         <Link to="/dashboard/jobsbyyou" className='header__button'>
           Jobs By You
         </Link>
-        <Link to="/about" className='header__button'>
+        <Link to="/aboutus" className='header__button'>
           About
         </Link>
       </div>
