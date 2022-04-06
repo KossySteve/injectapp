@@ -1,6 +1,41 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+
+.image-container {
+  display: flex;
+  flex-flow: column nowrap;
+  @include desktop {
+    flex-flow: row nowrap;
+  }
+}
+
 .image-box {
- width: 100%;
- display: flex;
- justify-content: center;
- align-items: center;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(247, 247, 247);
+  border: $inject-indigo 5px solid;
+  box-sizing: border-box;
+  margin-top: 8rem;
+
+  @include tablet {
+    margin-top: 4rem;
+  }
+  
+  @include desktop {
+    margin-top: 0;
+  }
+}
+.image {
+width: 100%;  
+}
+
+.text-box {
+  padding: 0 3rem;
+  margin-top: -4rem;
+  text-align: center;
+  @include tablet {
+    margin-top: 0;
+  }
 }
