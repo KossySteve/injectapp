@@ -36,11 +36,11 @@ console.log(jobdetails);
   return (
     <div>
       <form onSubmit={submitJobEditHandler}>
-        <div className="add-new-warehouse ">
-          <section className="add-new-warehouse__container form__container--postjob">
-            <h2 className="add-new-warehouse__title">Update Job</h2>
-            <p className="add-new-warehouse__subtitle "></p>
-            <div className="add-new-warehouse__input">
+        <div className="form">
+          <section className="form__container form__container--postjob">
+            <h2 className="form__title">Update Job</h2>
+            <p className="form__subtitle "></p>
+            <div className="form__input">
               <Label title="Company" />
               <Input
                 handleChange={handleChange}
@@ -48,7 +48,7 @@ console.log(jobdetails);
                 name="company"
               />
             </div>
-            <div className="add-new-warehouse__input">
+            <div className="form__input">
               <Label title="Website" />
               <Input
                 type="url"
@@ -57,7 +57,7 @@ console.log(jobdetails);
                 name="website"
               />
             </div>
-            <div className="add-new-warehouse__input">
+            <div className="form__input">
               <Label title="Location" />
               <Input
                 handleChange={handleChange}
@@ -65,7 +65,7 @@ console.log(jobdetails);
                 name="address"
               />
             </div>
-            <div className="add-new-warehouse__input">
+            <div className="form__input">
               <Label title="Start Date" />
               <Input
                 type="datetime-local"
@@ -74,7 +74,7 @@ console.log(jobdetails);
                 name="startDate"
               />
             </div>
-            <div className="add-new-warehouse__input">
+            <div className="form__input">
               <Label title="End Date" />
               <Input
                 type="datetime-local"
@@ -83,7 +83,7 @@ console.log(jobdetails);
                 name="endDate"
               />
             </div>
-            <div className="add-new-warehouse__input">
+            <div className="form__input">
               <Label title="Contact Email" />
               <Input
                 handleChange={handleChange}
@@ -91,7 +91,7 @@ console.log(jobdetails);
                 name="email"
               />
             </div>
-            <div className="add-new-warehouse__input">
+            <div className="form__input">
               <Label title="Contact Phone" />
               <Input
                 handleChange={handleChange}
@@ -99,7 +99,7 @@ console.log(jobdetails);
                 name="phone"
               />
             </div>
-            <div className="add-new-warehouse__input">
+            <div className="form__input">
               <Label title="Position" />
               <Dropdown
                 items={["Doctor", "Pharmacist", "Nurse", "Care giver"]}
@@ -108,7 +108,7 @@ console.log(jobdetails);
                 name="position"
               />
             </div>
-            <div className="add-new-warehouse__input">
+            <div className="form__input">
               <Label title="Pay per hr" />
               <Input
                 handleChange={handleChange}
@@ -117,7 +117,7 @@ console.log(jobdetails);
               />
             </div>
 
-            <div className="add-new-warehouse__input">
+            <div className="form__input">
               <Label title="Job Description" />
               <Textarea
                 handleChange={handleChange}
@@ -127,15 +127,15 @@ console.log(jobdetails);
             </div>
           </section>
         </div>
-        <div className="add-new-warehouse__button-box">
-          <div className="add-new-warehouse__button-left">
+        <div className="form__button-box">
+          <div className="form__button-left">
             <input
               type="reset"
               value="Cancel"
               className="button button--reset"
             />
           </div>
-          <div className="add-new-warehouse__button-right">
+          <div className="form__button-right">
             <Button title="Submit" />
           </div>
         </div>

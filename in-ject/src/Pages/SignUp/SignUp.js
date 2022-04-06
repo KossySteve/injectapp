@@ -36,58 +36,58 @@ function SignUp(props) {
 
   return (
     <form onSubmit={submitHandler}>
-      <div className="add-new-warehouse form--signup">
-        <section className="add-new-warehouse__container">
-          <h2 className="add-new-warehouse__title">Sign Up</h2>
-          <p className="add-new-warehouse__subtitle h4">
+      <div className="form form--signup">
+        <section className="form__container">
+          <h2 className="form__title">Sign Up</h2>
+          <p className="form__subtitle h4">
             Register to become part of the iN-JECT Community
           </p>
-          <div className="add-new-warehouse__input">
+          <div className="form__input">
             <Label title="First Name" />
             <Input name="firstName" />
           </div>
-          <div className="add-new-warehouse__input">
+          <div className="form__input">
             <Label title="Last Name" />
             <Input name="lastName" />
           </div>
-          <div className="add-new-warehouse__input">
+          <div className="form__input">
             <Label title="Email" />
             <Input type="email" name="email" />
           </div>
-          <div className="add-new-warehouse__input">
+          <div className="form__input">
             <Label title="Phone" />
             <Input name="phone" />
           </div>
-          <div className="add-new-warehouse__input">
+          <div className="form__input">
             <Label title="Position" />
             <Dropdown
               items={["Doctor", "Pharmacist", "Nurse", "Care giver"]}
               name="position"
             />
           </div>
-          <div className="add-new-warehouse__input">
+          <div className="form__input">
             <Label title="Password" />
             <Input type="password" name="password" />
           </div>
-          <div className="add-new-warehouse__input">
+          <div className="form__input">
             <Label title="Confirm Password" />
             <Input name="confirmPassword" type="password" />
           </div>
-          <div className="add-new-warehouse__input">
+          <div className="form__input">
             <Label title="LinkedIn Url" />
             <Input name="linkedInUrl" />
           </div>
-          <div className="add-new-warehouse__input">
+          <div className="form__input">
             <Label title="Resume Link" />
             <Input name="resumeUrl" />
           </div>
         </section>
       </div>
-      <div className="add-new-warehouse__button-box">
-        <div className="add-new-warehouse__button-left">
+      <div className="form__button-box">
+        <div className="form__button-left">
           <Button title="Cancel" />
         </div>
-        <div className="add-new-warehouse__button-right">
+        <div className="form__button-right">
           <Button title="Submit" />
         </div>
       </div>

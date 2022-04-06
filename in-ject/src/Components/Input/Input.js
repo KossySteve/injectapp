@@ -7,16 +7,13 @@ const Input = ({
   name,
   type,
   value,
-  placeholder,
   error,
   handleChange,
   className,
 }) => {
   const inputContainerClass = classNames('input-container', className);
 
-  const inputClass = classNames('input', {
-    'input--error': error,
-  });
+  const inputClass = classNames('input');
 
   return (
     <div className={inputContainerClass}>
@@ -26,7 +23,6 @@ const Input = ({
         name={name}
         type={type}
         value={value}
-       // placeholder={type === 'search' ? 'Search...' : placeholder}
         onChange={handleChange}
       />
   
@@ -86,28 +82,7 @@ const Dropdown = ({ id, name, items, className, handleChange }) => {
   );
 };
 
-const Radio = ({ id, label, name, value, className, handleChange }) => {
-  const inputContainerClass = classNames(
-    'input-container input-container--radio',
-    className
-  );
 
-  return (
-    <div className={inputContainerClass}>
-      <input
-        className="input input--radio"
-        id={id}
-        name={name}
-        type="radio"
-        value={value}
-        onChange={handleChange}
-      />
-      <label className="input__label" htmlFor={id}>
-        {label}
-      </label>
-    </div>
-  );
-};
 
-export { Input, InputGroup, Textarea, Dropdown, Radio };
+export { Input, InputGroup, Textarea, Dropdown};
 export default Input;

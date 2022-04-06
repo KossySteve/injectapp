@@ -69,30 +69,30 @@ export class JobsByYou extends Component {
       <div>Jobs are Loading...</div>
     ) : (
       <section>
-        {this.state.myJobs.length ? this.state.myJobs.map((job, index) => (
-          //include time of posting to database
-          <div key={index} className="post">
-            <h4 className="post__heading">
-              {`${job.position}`} position{" "}
-              <span>{`posted for ${job.startDate.substring(0, 10)}`}</span>
-            </h4>
-            <div className="post__btns">
-              <Button
-                title={
-                  this.state.showApplicantTable
-                    ? "Close Table"
-                    : "View Applicants"
-                }
-                onClick={() => this.viewApplicants(job.id)}
-              />
-              <Button title="Edit Job" onClick={() => this.updateJob(job)} />
-              <Button
-                title="Delete Job"
-                onClick={() => this.deleteJob(job.id)}
-              />
+        {this.state.myJobs.length ? (
+          this.state.myJobs.map((job, index) => (
+            //include time of posting to database
+            <div key={index} className="post">
+              <h4 className="post__heading">
+                {`${job.position}`} position{" "}
+                <span>{`posted for ${job.startDate.substring(0, 10)}`}</span>
+              </h4>
+              <div className="post__btns">
+                <Button
+                  title="View Applicants"
+                  onClick={() => this.viewApplicants(job.id)}
+                />
+                <Button title="Edit Job" onClick={() => this.updateJob(job)} />
+                <Button
+                  title="Delete Job"
+                  onClick={() => this.deleteJob(job.id)}
+                />
+              </div>
             </div>
-          </div>
-        )) : <h2>No Jobs Posted</h2>}
+          ))
+        ) : (
+          <h2>No Jobs Posted</h2>
+        )}
         {this.state.showApplicantTable &&
           (this.state.applicants.length ? (
             <table className="table">

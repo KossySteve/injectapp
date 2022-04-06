@@ -1,7 +1,7 @@
 @use "../../styles/partials/colors" as *;
 @use "../../styles/partials/mixins" as *;
 
-.add-new-warehouse {
+.form {
   margin-top: 4rem;
   text-align: center;
   display: flex;
@@ -65,8 +65,9 @@
   &__input {
     margin-bottom: 0.8rem;
   }
-}
 
-.form--signup {
+
+&--signup {
   padding-top: 6rem;
+}
 }

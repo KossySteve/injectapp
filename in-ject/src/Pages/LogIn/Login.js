@@ -34,26 +34,26 @@ function Login(props) {
 
   return (
     <form onSubmit={handleLogin}>
-      <div className="add-new-warehouse form--login">
-        <section className="add-new-warehouse__container">
-          <h2 className="add-new-warehouse__subtitles">Login Up</h2>
+      <div className="form form--login">
+        <section className="form__container">
+          <h2 className="form__subtitles">Login Up</h2>
 
-          <div className="add-new-warehouse__input">
+          <div className="form__input">
             <Label title="Email" />
             <Input type='email' name="email" placeholder="" />
           </div>
 
-          <div className="add-new-warehouse__input">
+          <div className="form__input">
             <Label title="Password" />
             <Input type='password' name="password" placeholder="" />
           </div>
         </section>
       </div>
-      <div className="add-new-warehouse__button-box">
-        <div className="add-new-warehouse__button-left">
+      <div className="form__button-box">
+        <div className="form__button-left">
           <Button title="Cancel" />
         </div>
-        <div className="add-new-warehouse__button-right">
+        <div className="form__button-right">
           <Button title="Submit" />
         </div>
       </div>
