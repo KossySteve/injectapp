@@ -3,8 +3,9 @@ import { Input, Dropdown } from "../../Components/Input/Input";
 import Button from "../../Components/Button/Button";
 import Label from "../../Components/Label/Label";
 import "./SignUp.scss";
-import axios from 'axios';
+import axios from "axios";
 import formNotValid from "../../utils/FormValidation";
+import Swal from "sweetalert2";
 
 function SignUp(props) {
   const submitHandler = (e) => {
@@ -17,18 +18,20 @@ function SignUp(props) {
       position: e.target.position.value,
       linkedInUrl: e.target.linkedInUrl.value,
       resumeUrl: e.target.resumeUrl.value,
-    }
-    formNotValid(newUser) || (e.target.password.value !== e.target.confirmPassword.value) ? alert("Failed to upload, complete form correctly") : 
-    axios.post('http://localhost:5050/users', newUser)
-  .then(res => {
-      console.log(res)
-      props.history.push('/login')
-  })
-  .catch((err) => {
-        console.log(err);
-        e.target.reset();
-      });
-   
+    };
+    formNotValid(newUser) ||
+    e.target.password.value !== e.target.confirmPassword.value
+      ? Swal.fire("Failed to upload, complete form correctly")
+      : axios
+          .post("http://localhost:5050/users", newUser)
+          .then((res) => {
+            Swal.fire("You registeration on iN-JECT was succesful");
+            props.history.push("/login");
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+    e.target.reset();
   };
 
   return (
@@ -36,7 +39,9 @@ function SignUp(props) {
       <div className="add-new-warehouse form--signup">
         <section className="add-new-warehouse__container">
           <h2 className="add-new-warehouse__title">Sign Up</h2>
-          <p className="add-new-warehouse__subtitle h4">Register to become part of the iN-JECT Community</p>
+          <p className="add-new-warehouse__subtitle h4">
+            Register to become part of the iN-JECT Community
+          </p>
           <div className="add-new-warehouse__input">
             <Label title="First Name" />
             <Input name="firstName" />
@@ -47,7 +52,7 @@ function SignUp(props) {
           </div>
           <div className="add-new-warehouse__input">
             <Label title="Email" />
-            <Input name="email" />
+            <Input type="email" name="email" />
           </div>
           <div className="add-new-warehouse__input">
             <Label title="Phone" />
@@ -58,16 +63,15 @@ function SignUp(props) {
             <Dropdown
               items={["Doctor", "Pharmacist", "Nurse", "Care giver"]}
               name="position"
-            
             />
           </div>
           <div className="add-new-warehouse__input">
             <Label title="Password" />
-            <Input name="password" />
+            <Input type="password" name="password" />
           </div>
           <div className="add-new-warehouse__input">
             <Label title="Confirm Password" />
-            <Input name="confirmPassword" />
+            <Input name="confirmPassword" type="password" />
           </div>
           <div className="add-new-warehouse__input">
             <Label title="LinkedIn Url" />
@@ -77,7 +81,6 @@ function SignUp(props) {
             <Label title="Resume Link" />
             <Input name="resumeUrl" />
           </div>
-   
         </section>
       </div>
       <div className="add-new-warehouse__button-box">

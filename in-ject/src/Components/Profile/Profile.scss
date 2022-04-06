@@ -51,7 +51,20 @@
       @extend .dashboard__sidebar-text;
       color: $inject-indigo;
       cursor: pointer;
+      margin: 0;
     }
+    &--resume{
+      @extend .dashboard__sidebar-text--linkedIn;
+    }
+   }
+   &-box{
+     width: 100%;
+     display: flex;
+     justify-content: space-between;
+     @include tablet {
+      flex-direction: column;
+     }
+
    }
   }
 }

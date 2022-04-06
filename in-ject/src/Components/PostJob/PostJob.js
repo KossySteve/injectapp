@@ -5,6 +5,7 @@ import Input, { Dropdown, Textarea } from "../Input/Input";
 import Label from "../Label/Label";
 import formNotValid from "../../utils/FormValidation";
 import "./PostJob.scss";
+import Swal from "sweetalert2";
 
 function PostJob({userInfo}) {
   const submitJobHandler = (e) => {
@@ -22,14 +23,13 @@ function PostJob({userInfo}) {
       pay: e.target.pay.value,
       user_id: userInfo.id
     };
-    console.log(newJob);
+
     formNotValid(newJob)
-      ? alert("Failed to upload, complete form correctly")
+      ? Swal.fire("Failed to upload, complete form correctly")
       : axios
           .post("http://localhost:5050/jobs", newJob)
           .then((res) => {
-            console.log(res);
-            alert("you submitted job successfully");
+            Swal.fire("You submitted and shared this job successfully");
             // props.history.push("/jobsbyyou");
           })
           .catch((err) => {
@@ -83,7 +83,7 @@ function PostJob({userInfo}) {
               />
             </div>
             <div className="add-new-warehouse__input">
-              <Label title="Pay" />
+              <Label title="Pay per hr" />
               <Input name="pay" />
             </div>
 

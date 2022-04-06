@@ -17,10 +17,11 @@
     box-sizing: border-box;
     background-color: $inject-black;
     //border: $inject-indigo 1px solid;
-    margin: 2rem 4rem;
+    
     border-radius: 10px;
     
     @include tablet {
+      margin: 2rem 4rem;
       padding: 2rem 4rem;
       display: flex;
       flex-direction: column;
@@ -32,8 +33,13 @@
   }
   &__heading {
     background-color: $inject-graphite;
-    padding: 0.5rem 0;
+    padding: 0.5rem;
     border-radius: 10px;
+    margin-top: 8rem;
+    text-align: center;
+    @include tablet {
+      margin-top: 1rem;
+    }
   }
 }
 

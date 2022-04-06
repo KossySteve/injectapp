@@ -39,12 +39,12 @@ function Login(props) {
 
           <div className="add-new-warehouse__input">
             <Label title="Email" />
-            <Input name="email" placeholder="" />
+            <Input type='email' name="email" placeholder="" />
           </div>
 
           <div className="add-new-warehouse__input">
             <Label title="Password" />
-            <Input name="password" placeholder="" />
+            <Input type='password' name="password" placeholder="" />
           </div>
         </section>
       </div>
@@ -57,7 +57,7 @@ function Login(props) {
         </div>
       </div>
       <div className="signup-instruction">
-        <h4>If you don't have an account, please <Link to="/register"> SignUp</Link></h4>
+        <h4>If you don't have an account, please <Link to="/signup"> SignUp</Link></h4>
         
       </div>
     </form>

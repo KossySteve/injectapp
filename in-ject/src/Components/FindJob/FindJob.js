@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import Button from "../Button/Button";
-import Input, { Dropdown, Textarea } from "../Input/Input";
-import Label from "../Label/Label";
-import formNotValid from "../../utils/FormValidation";
 import "./FindJob.scss";
 import { Link } from "react-router-dom";
+import Swal from 'sweetalert2';
 
 
 
@@ -20,7 +18,7 @@ export class FindJob extends Component {
               .post("http://localhost:5050/jobs/apply", {jobId: id, userId: this.props.userInfo.id})
               .then((res) => {
                 console.log(res);
-               //alert('You have submitted an application for this job');
+               Swal.fire('You have submitted an application for this job');
               })
               .catch((err) => {
                 console.log(err);
@@ -50,7 +48,7 @@ export class FindJob extends Component {
              <h4 className="dashboard__main-heading">Job description</h4>
              <h3 className="dashboard__main-text">{`${job.position} is required from the`} <br/> {`${job.startDate } to ${job.endDate }`}</h3>
              <h3 className="dashboard__main-text">{`${job.description} at`}</h3>
-             <h3 className="dashboard__main-text" onClick={(e) => window.open(`${job.website}`)}><Link>{` ${job.company}`}</Link></h3>
+             <h3 className="dashboard__main-text" onClick={(e) => window.open(`${job.website}`)}><Link className="dashboard__main-link">{` ${job.company}`}</Link></h3>
              <h4 className="dashboard__main-heading">Contact</h4>
              <h3 className="dashboard__main-text">{`email: ${job.email} or call: ${job.phone}`}</h3>
              <h4 className="dashboard__main-heading">Location</h4>
@@ -60,7 +58,7 @@ export class FindJob extends Component {
            
            </div>
            <div>
-             <Button title="Apply" onClick={this.submitJobApplication(job.id)} />
+             <Button title="Apply" onClick={()=>this.submitJobApplication(job.id)} />
            </div>
          </div>
         

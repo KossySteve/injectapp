@@ -1,26 +1,35 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Table.scss";
 
-function Table(name, phone, linkedInUrl, resume) {
+function Table({ name, email, phone, linkedInUrl, resumeUrl, key }) {
   return (
-    <table className="table">
-      <thead>
-        <tr className="table__row">
-          <th className="table__heading">Applicant Name</th>
-          <th className="table__heading">Phone</th>
-          <th className="table__heading">LinkedIn</th>
-          <th className="table__heading">Resume</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr className="table__row">
-          <td className="table__data">{name}</td>
-          <td className="table__data">{phone}</td>
-          <td className="table__data">{linkedInUrl}</td>
-          <td className="table__data">{resume}</td>
-        </tr>
-      </tbody>
-    </table>
+    <tr key={key} className="table__row">
+      <td className="table__data table__data--contacts">
+        <h4>{name}</h4>
+        <h4>{phone}</h4>
+      </td>
+      <td className="table__data table__data--contacts">
+        <h4
+          className="dashboard__main-text"
+          onClick={(e) => window.open(`mailto: ${email}`)}
+        >
+          <Link className="dashboard__main-link">{` ${email}`}</Link>
+        </h4>
+        <h4
+          className="dashboard__main-text"
+          onClick={(e) => window.open(`${resumeUrl}`)}
+        >
+          <Link className="dashboard__main-link">Resume</Link>
+        </h4>
+        <h4
+          className="dashboard__main-text"
+          onClick={(e) => window.open(`${linkedInUrl}`)}
+        >
+          <Link className="dashboard__main-link">LinkedIn</Link>
+        </h4>
+      </td>
+    </tr>
   );
 }
 

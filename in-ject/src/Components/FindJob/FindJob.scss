@@ -47,5 +47,11 @@
         padding: 0;
         margin: 0;
       }
+      &-link {
+        color: rgb(73, 73, 250);
+        &:hover, &:active {
+          color: rgb(8, 8, 236);
+        }
+      }
     }
 }

@@ -3,16 +3,15 @@
 @use "../../styles/partials/global" as *;
 
 .table {
-    border-collapse: collapse;
-    width: 100%;
-    //border: red solid 5px;
-    &__heading, &__data {
-      padding: 8px;
-      text-align: left;
-      border-bottom: 1px solid #ddd;
-    }
-    
-    &__row:hover {
-      background-color: $inject-graphite;
-    }
+  &__data {
+    text-align: left;
+    border-bottom: 1px solid #ddd;
   }
+  &--contacts {
+    display: flex;
+    flex-direction: column;
+  }
+  &__row:hover {
+    background-color: $inject-graphite;
+  }
+}

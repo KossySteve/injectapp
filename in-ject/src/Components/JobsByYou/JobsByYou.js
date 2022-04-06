@@ -13,20 +13,24 @@ export class JobsByYou extends Component {
   };
   viewApplicants = (id) => {
     //get users applied to the job by jobs/apply/job.id
-
+    console.log("job id", id);
     axios
       .get(`http://localhost:5050/jobs/apply/${id}`)
       .then((res) => {
         console.log(res.data);
-        this.setState({ applicants: res.data, showApplicantTable: true });
+        this.setState({
+          applicants: res.data,
+          showApplicantTable: !this.state.showApplicantTable,
+        });
+        console.log("applicants", this.state.applicants);
       })
       .catch((err) => {
-        console.log(err);
+        console.log("error", err);
       });
   };
 
   componentDidMount() {
-    console.log(this.props.userInfo.id);
+    //console.log(this.props.userInfo.id);
     // get all jobs posted by user
     axios
       .get(`http://localhost:5050/jobs/${this.props.userInfo.id}`)
@@ -45,27 +49,39 @@ export class JobsByYou extends Component {
       <section>
         {this.state.myJobs.map((job, index) => (
           //include time of posting to database
-          <h4 key={index}>
-            {`${job.position}`} position{" "}
-            <span>{`posted for ${job.startDate.substring(0, 10)}`}</span>
+          <div key={index} className="post">
+            <h4 className="post__heading">
+              {`${job.position}`} position{" "}
+              <span>{`posted for ${job.startDate.substring(0, 10)}`}</span>
+            </h4>
             <Button
               title="View Applicants"
               onClick={() => this.viewApplicants(job.id)}
             />
-          </h4>
+          </div>
         ))}
-
-        {this.state.showApplicantTable &&
-          this.state.applicants.map((applicant, index) => (
-            <div key={index}>
-              <Table
-                name={applicant.name}
-                phone={applicant.phone}
-                linkedInUrl={applicant.inkedInUrl}
-                resume={applicant.resume}
-              />
-            </div>
-          ))}
+        {this.state.showApplicantTable && (
+          <table className="table">
+            <thead>
+              <tr className="table__row">
+                <th className="table__heading">Applicant</th>
+                <th className="table__heading">Contact</th>
+              </tr>
+            </thead>
+            <tbody>
+              {this.state.applicants.map((applicant, index) => (
+                <Table
+                  name={applicant.name}
+                  email={applicant.email}
+                  phone={applicant.phone}
+                  linkedInUrl={applicant.linkedInUrl}
+                  resumeUrl={applicant.resumeUrl}
+                  key={index}
+                />
+              ))}
+            </tbody>
+          </table>
+        )}
       </section>
     );
   }
