@@ -1,0 +1,147 @@
+import React, { useState } from "react";
+import axios from "axios";
+import Button from "../Button/Button";
+import Input, { Dropdown, Textarea } from "../Input/Input";
+import Label from "../Label/Label";
+import formNotValid from "../../utils/FormValidation";
+import Swal from "sweetalert2";
+import { useLocation, useHistory } from "react-router-dom";
+
+function UpdateJob(props) {
+  const location = useLocation();
+  const history = useHistory();
+  const [jobdetails, setJobdetails] = useState(location.state[0]);
+
+  const handleChange = (e) => {
+    setJobdetails({ ...jobdetails, [e.target.name]: e.target.value });
+  };
+
+  const submitJobEditHandler = (e) => {
+    e.preventDefault();
+    delete jobdetails.updated_at;
+    delete jobdetails.id;
+console.log(jobdetails);
+    formNotValid(jobdetails)
+      ? Swal.fire("Failed to upload, complete form correctly")
+      : axios
+          .put(`http://localhost:5050/jobs/${location.state[0].id}`, jobdetails)
+          .then((res) => {
+            Swal.fire("You updated this job successfully");
+            history.push({ pathname: "/dashboard/jobsbyyou" });
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+  };
+  return (
+    <div>
+      <form onSubmit={submitJobEditHandler}>
+        <div className="add-new-warehouse ">
+          <section className="add-new-warehouse__container form__container--postjob">
+            <h2 className="add-new-warehouse__title">Update Job</h2>
+            <p className="add-new-warehouse__subtitle "></p>
+            <div className="add-new-warehouse__input">
+              <Label title="Company" />
+              <Input
+                handleChange={handleChange}
+                value={jobdetails.company}
+                name="company"
+              />
+            </div>
+            <div className="add-new-warehouse__input">
+              <Label title="Website" />
+              <Input
+                type="url"
+                handleChange={handleChange}
+                value={jobdetails.website}
+                name="website"
+              />
+            </div>
+            <div className="add-new-warehouse__input">
+              <Label title="Location" />
+              <Input
+                handleChange={handleChange}
+                value={jobdetails.address}
+                name="address"
+              />
+            </div>
+            <div className="add-new-warehouse__input">
+              <Label title="Start Date" />
+              <Input
+                type="datetime-local"
+                handleChange={handleChange}
+                value={jobdetails.startDate}
+                name="startDate"
+              />
+            </div>
+            <div className="add-new-warehouse__input">
+              <Label title="End Date" />
+              <Input
+                type="datetime-local"
+                handleChange={handleChange}
+                value={jobdetails.endDate}
+                name="endDate"
+              />
+            </div>
+            <div className="add-new-warehouse__input">
+              <Label title="Contact Email" />
+              <Input
+                handleChange={handleChange}
+                value={jobdetails.email}
+                name="email"
+              />
+            </div>
+            <div className="add-new-warehouse__input">
+              <Label title="Contact Phone" />
+              <Input
+                handleChange={handleChange}
+                value={jobdetails.phone}
+                name="phone"
+              />
+            </div>
+            <div className="add-new-warehouse__input">
+              <Label title="Position" />
+              <Dropdown
+                items={["Doctor", "Pharmacist", "Nurse", "Care giver"]}
+                handleChange={handleChange}
+                value={jobdetails.position}
+                name="position"
+              />
+            </div>
+            <div className="add-new-warehouse__input">
+              <Label title="Pay per hr" />
+              <Input
+                handleChange={handleChange}
+                value={jobdetails.pay}
+                name="pay"
+              />
+            </div>
+
+            <div className="add-new-warehouse__input">
+              <Label title="Job Description" />
+              <Textarea
+                handleChange={handleChange}
+                value={jobdetails.description}
+                name="description"
+              />
+            </div>
+          </section>
+        </div>
+        <div className="add-new-warehouse__button-box">
+          <div className="add-new-warehouse__button-left">
+            <input
+              type="reset"
+              value="Cancel"
+              className="button button--reset"
+            />
+          </div>
+          <div className="add-new-warehouse__button-right">
+            <Button title="Submit" />
+          </div>
+        </div>
+      </form>
+    </div>
+  );
+}
+
+export default UpdateJob;

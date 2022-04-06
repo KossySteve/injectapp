@@ -1,21 +1,13 @@
 import React from "react";
-import axios from 'axios';
+import axios from "axios";
 import Button from "../Button/Button";
 import Input, { Dropdown, Textarea } from "../Input/Input";
 import Label from "../Label/Label";
 import formNotValid from "../../utils/FormValidation";
 import "./PostJob.scss";
 import Swal from "sweetalert2";
-import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
 
-function PostJob({userInfo}) {
-  const location = useLocation();
-
-  useEffect(() => {
-     console.log(location.state);
-  }, [location]);
-
+function PostJob({ userInfo }) {
   const submitJobHandler = (e) => {
     e.preventDefault();
     let newJob = {
@@ -29,7 +21,7 @@ function PostJob({userInfo}) {
       endDate: e.target.endDate.value,
       description: e.target.description.value,
       pay: e.target.pay.value,
-      user_id: userInfo.id
+      user_id: userInfo.id,
     };
 
     formNotValid(newJob)
@@ -43,10 +35,9 @@ function PostJob({userInfo}) {
           .catch((err) => {
             console.log(err);
           });
-          e.target.reset();
+    e.target.reset();
   };
   return (
-  
     <div>
       <form onSubmit={submitJobHandler}>
         <div className="add-new-warehouse ">
@@ -62,7 +53,7 @@ function PostJob({userInfo}) {
             </div>
             <div className="add-new-warehouse__input">
               <Label title="Website" />
-              <Input type='url' name="website" />
+              <Input type="url" name="website" />
             </div>
             <div className="add-new-warehouse__input">
               <Label title="Location" />

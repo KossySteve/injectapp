@@ -11,7 +11,7 @@ export class JobsByYou extends Component {
     isLoading: true,
     showApplicantTable: false,
     applicants: [],
-   // jobforUpdate: {}
+    // jobforUpdate: {}
   };
   viewApplicants = (id) => {
     //get users applied to the job
@@ -32,10 +32,8 @@ export class JobsByYou extends Component {
   };
 
   updateJob = (job) => {
-    //update specific job 
-    //console.log("Hello", job);
-    this.props.history.push('/dashboard/postjob', [job]);
-    
+      //push to the job to UpdateJob Component to update job
+    this.props.history.push("/dashboard/updatejob", [job]);
   };
 
   deleteJob = (id) => {

@@ -6,6 +6,7 @@ import FindJob from "../../Components/FindJob/FindJob";
 import Profile from "../../Components/Profile/Profile";
 import JobsByYou from "../../Components/JobsByYou/JobsByYou";
 import { Switch, Route } from "react-router-dom";
+import UpdateJob from "../../Components/UpdateJob/UpdateJob";
 
 export class Dashboard extends Component {
   state = {
@@ -53,6 +54,10 @@ export class Dashboard extends Component {
               <Route
                 path="/dashboard/jobsbyyou"
                 render={() => <JobsByYou userInfo={this.state.userInfo} />}
+              />
+              <Route
+                path="/dashboard/updatejob"
+                render={() => <UpdateJob userInfo={this.state.userInfo} />}
               />
             </Switch>
           </div>
