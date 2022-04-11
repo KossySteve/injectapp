@@ -13,7 +13,7 @@
     align-items: flex-start;
     height: 80vh;
     @include tablet {
-      height: 70%;
+    
     }
     &-heading {
       width: 100%;
@@ -41,6 +41,7 @@
     }
     &-text {
       color: white;
+      white-space: nowrap;
       font-size: 0.95rem;
       font-weight: 100;
     &--profile {
