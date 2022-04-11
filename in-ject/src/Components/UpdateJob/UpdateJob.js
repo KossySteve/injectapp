@@ -3,7 +3,7 @@ import axios from "axios";
 import Button from "../Button/Button";
 import Input, { Dropdown, Textarea } from "../Input/Input";
 import Label from "../Label/Label";
-import formNotValid from "../../utils/FormValidation";
+import {formNotValid} from "../../utils/functions";
 import Swal from "sweetalert2";
 import { useLocation, useHistory } from "react-router-dom";
 

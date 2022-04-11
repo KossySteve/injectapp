@@ -4,7 +4,7 @@ import Button from "../../Components/Button/Button";
 import Label from "../../Components/Label/Label";
 import "./SignUp.scss";
 import axios from "axios";
-import formNotValid from "../../utils/FormValidation";
+import {formNotValid} from "../../utils/functions";
 import Swal from "sweetalert2";
 
 function SignUp(props) {

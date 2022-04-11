@@ -3,7 +3,7 @@ import axios from "axios";
 import Button from "../Button/Button";
 import Input, { Dropdown, Textarea } from "../Input/Input";
 import Label from "../Label/Label";
-import formNotValid from "../../utils/FormValidation";
+import {apiUrlJobs, formNotValid} from "../../utils/functions";
 import "./PostJob.scss";
 import Swal from "sweetalert2";
 
@@ -27,10 +27,9 @@ function PostJob({ userInfo }) {
     formNotValid(newJob)
       ? Swal.fire("Failed to upload, complete form correctly")
       : axios
-          .post("http://localhost:5050/jobs", newJob)
+          .post(apiUrlJobs(''), newJob)
           .then((res) => {
             Swal.fire("You submitted and shared this job successfully");
-            // props.history.push("/jobsbyyou");
           })
           .catch((err) => {
             console.log(err);

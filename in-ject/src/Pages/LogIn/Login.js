@@ -2,10 +2,10 @@ import React from "react";
 import { Input } from "../../Components/Input/Input";
 import Button from "../../Components/Button/Button";
 import Label from "../../Components/Label/Label";
-import axios from 'axios';
-import formNotValid from "../../utils/FormValidation"
+import axios from "axios";
+import { formNotValid, apiUrlUsers } from "../../utils/functions";
 import { Link } from "react-router-dom";
-import './Login.scss';
+import "./Login.scss";
 import Swal from "sweetalert2";
 
 function Login(props) {
@@ -19,17 +19,16 @@ function Login(props) {
 
     formNotValid(user)
       ? Swal.fire("Failed to upload, complete form")
-      :  axios.post('http://localhost:5050/users/login', user)
-        .then(res => {
-            console.log(res);
-            let token = res.data.token;
-            sessionStorage.setItem('authToken', token);
-            props.history.push('/');
-            console.log('Hello');
-        })
-        .catch((err) => {console.log(err)});
-       e.target.reset();
-      
+      : axios
+          .post(apiUrlUsers("login"), user)
+          .then((res) => {
+            sessionStorage.setItem("authToken", res.data.token);
+            props.history.push("/");
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+    e.target.reset();
   };
 
   return (
@@ -40,12 +39,12 @@ function Login(props) {
 
           <div className="form__input">
             <Label title="Email" />
-            <Input type='email' name="email" placeholder="" />
+            <Input type="email" name="email" placeholder="" />
           </div>
 
           <div className="form__input">
             <Label title="Password" />
-            <Input type='password' name="password" placeholder="" />
+            <Input type="password" name="password" placeholder="" />
           </div>
         </section>
       </div>
@@ -58,8 +57,9 @@ function Login(props) {
         </div>
       </div>
       <div className="signup-instruction">
-        <h4>If you don't have an account, please <Link to="/signup"> SignUp</Link></h4>
-        
+        <h4>
+          If you don't have an account, please <Link to="/signup"> SignUp</Link>
+        </h4>
       </div>
     </form>
   );

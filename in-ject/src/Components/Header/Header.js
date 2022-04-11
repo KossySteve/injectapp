@@ -13,7 +13,7 @@ function Header() {
       </Link>
       <div className="header__container">
         <Link to="/" className='header__button'>
-          Find Jobs
+          See Jobs
         </Link>
         <Link to="/dashboard/postjob" className='header__button'>
           Post Jobs

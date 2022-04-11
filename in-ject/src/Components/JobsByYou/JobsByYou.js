@@ -5,6 +5,7 @@ import axios from "axios";
 import Button from "../Button/Button";
 import Table from "../Table/Table";
 import Swal from "sweetalert2";
+import { getReq, apiUrlJobs } from "../../utils/functions";
 
 export class JobsByYou extends Component {
   state = {
@@ -12,20 +13,18 @@ export class JobsByYou extends Component {
     isLoading: true,
     showApplicantTable: false,
     applicants: [],
-    // jobforUpdate: {}
   };
+
+  //this.getReq(apiUrl(""), "videos", this.fetchVideoDetails); apiUrlUsers getReq apiUrlJobs
   viewApplicants = (id) => {
     //get users applied to the job
-    console.log("job id", id);
     axios
-      .get(`http://localhost:5050/jobs/apply/${id}`)
+      .get(`${apiUrlJobs("apply")}/${id}`)
       .then((res) => {
-        console.log(res.data);
         this.setState({
           applicants: res.data,
           showApplicantTable: !this.state.showApplicantTable,
         });
-        console.log("applicants", this.state.applicants);
       })
       .catch((err) => {
         console.log("error", err);
@@ -41,10 +40,14 @@ export class JobsByYou extends Component {
     //delete specific job
     console.log("job id", id);
     axios
-      .delete(`http://localhost:5050/jobs/${id}`)
+      .delete(`${apiUrlJobs("")}/${id}`)
       .then((res) => {
         Swal.fire("You deleted this job successfully");
-        this.props.history.push("/dashboard/jobsbyyou");
+        axios
+          .get(`${apiUrlJobs("s")}/${this.props.userInfo.id}`)
+          .then((res) => {
+            this.setState({ myJobs: res.data, isLoading: false });
+          });
       })
       .catch((err) => {
         console.log(err);
@@ -52,10 +55,9 @@ export class JobsByYou extends Component {
   };
 
   componentDidMount() {
-    //console.log(this.props.userInfo.id);
-    // get all jobs posted by user
+    // get all jobs posted by specific user
     axios
-      .get(`http://localhost:5050/jobs/${this.props.userInfo.id}`)
+      .get(`${apiUrlJobs("")}/${this.props.userInfo.id}`)
       .then((res) => {
         this.setState({ myJobs: res.data, isLoading: false });
       })
@@ -79,14 +81,11 @@ export class JobsByYou extends Component {
               </h4>
               <div className="post__btns">
                 <Button
-                  title="View Applicants"
+                  title="View"
                   onClick={() => this.viewApplicants(job.id)}
                 />
-                <Button title="Edit Job" onClick={() => this.updateJob(job)} />
-                <Button
-                  title="Delete Job"
-                  onClick={() => this.deleteJob(job.id)}
-                />
+                <Button title="Edit" onClick={() => this.updateJob(job)} />
+                <Button title="Delete" onClick={() => this.deleteJob(job.id)} />
               </div>
             </div>
           ))

@@ -7,6 +7,7 @@ import Profile from "../../Components/Profile/Profile";
 import JobsByYou from "../../Components/JobsByYou/JobsByYou";
 import { Switch, Route } from "react-router-dom";
 import UpdateJob from "../../Components/UpdateJob/UpdateJob";
+import { apiUrlUsers } from "../../utils/functions";
 
 export class Dashboard extends Component {
   state = {
@@ -14,16 +15,16 @@ export class Dashboard extends Component {
     isLoading: true,
   };
   componentDidMount() {
+    //getting token to allow access to dashboard
     let token = sessionStorage.getItem("authToken");
     token
       ? axios
-          .get("http://localhost:5050/users/current", {
+          .get(apiUrlUsers('current'), {
             headers: {
               Authorization: `Bearer ${token}`,
             },
           })
           .then((res) => {
-            // console.log(res.data);
             this.setState({
               userInfo: res.data,
               isLoading: false,
