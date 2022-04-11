@@ -73,6 +73,7 @@ export class FindJob extends Component {
             </div>
             <div>
               <Button
+                className="apply-btn"
                 title="Apply"
                 onClick={() => this.submitJobApplication(job.id)}
               />

@@ -6,17 +6,18 @@
   &__sidebar {
     background-color: $inject-black;
     border: 0;
-    border-right: 0;
     padding: 4rem 2rem;
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-start;
     align-items: flex-start;
+    height: 80vh;
     @include tablet {
-      width: 25%;
+      height: 70%;
     }
     &-heading {
       width: 100%;
+      color: $inject-indigo;
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
@@ -39,7 +40,7 @@
       }
     }
     &-text {
-      color: $inject-indigo;
+      color: white;
       font-size: 0.95rem;
       font-weight: 100;
     &--profile {

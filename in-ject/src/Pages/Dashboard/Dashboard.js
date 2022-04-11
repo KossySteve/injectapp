@@ -8,18 +8,21 @@ import JobsByYou from "../../Components/JobsByYou/JobsByYou";
 import { Switch, Route } from "react-router-dom";
 import UpdateJob from "../../Components/UpdateJob/UpdateJob";
 import { apiUrlUsers } from "../../utils/functions";
+import Button from "../../Components/Button/Button";
 
 export class Dashboard extends Component {
   state = {
     userInfo: {},
     isLoading: true,
+    showSideBar: false,
   };
+  closeSideBar = () => this.setState({ showSideBar: false });
   componentDidMount() {
     //getting token to allow access to dashboard
     let token = sessionStorage.getItem("authToken");
     token
       ? axios
-          .get(apiUrlUsers('current'), {
+          .get(apiUrlUsers("current"), {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -62,8 +65,19 @@ export class Dashboard extends Component {
               />
             </Switch>
           </div>
-          <Profile userInfo={this.state.userInfo} />
+          <div className={ this.state.showSideBar ? `dashboard__profile` : `dashboard__profile--close` }>
+         
+              <Profile userInfo={this.state.userInfo} />
+          
+          </div>
         </div>
+        <Button
+          className="dashboard__profile-btn"
+          title="☰"
+          onClick={() =>
+            this.setState({ showSideBar: !this.state.showSideBar })
+          }
+        />
       </section>
     );
   }

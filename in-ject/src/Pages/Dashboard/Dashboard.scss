@@ -16,10 +16,10 @@
     padding: 0 1rem;
     box-sizing: border-box;
     background-color: $inject-black;
-    //border: $inject-indigo 1px solid;
-    
+    //border: $inject-indigo 5px solid;
+    margin-bottom: 2rem;
     border-radius: 10px;
-    
+
     @include tablet {
       margin: 2rem 4rem;
       padding: 2rem 4rem;
@@ -27,9 +27,9 @@
       flex-direction: column;
     }
     @include desktop {
-       display: block;
-       text-align: center;
-      }
+      display: block;
+      text-align: center;
+    }
   }
   &__heading {
     background-color: $inject-graphite;
@@ -41,11 +41,48 @@
       margin-top: 1rem;
     }
   }
+  &__profile-btn {
+    position: fixed;
+    bottom: 0;
+    border: $inject-graphite solid 5px;
+    @include tablet {
+      border: none;
+      border-radius: 0;
+      background-color: transparent;
+      padding: 0.5rem;
+      transition: 0.8s;
+      cursor: pointer;
+      position: absolute;
+      font-size: 2rem;
+      top: 7.5rem;
+      right: 0;
+      color: $inject-indigo;
+    }
+    &:hover {
+      border: $inject-indigo solid 2px;
+    }
+  }
+  &__profile {
+    width: 100%;
+    position: fixed;
+    top: 10rem;
+    bottom: 0;
+    transition: 1s;
+    @include tablet {
+      width: 20%;
+      position: fixed;
+      right: 0;
+      top: 5rem;
+      transition: 2s;
+    }
+    &--close {
+      @extend .dashboard__profile;
+      display: none;
+      @include tablet {
+        display: block;
+        width: 0;
+      }
+     
+    }
+  }
 }
-
-
-//   .main {
-//     transition: margin-left .5s;
-//     padding: 16px;
-//     border: red 5px solid;
-//   }
