@@ -19,6 +19,10 @@
   }
   @include desktop {
   }
+  &-red{
+    @extend .header;
+    background-color: red;
+  }
 
   &__logo {
     margin: 1rem 1.2rem 0;
@@ -55,8 +59,7 @@
       width: 20%;
     }
 
-    &:hover,
-    &:active {
+    &:hover {
       border: 4px solid $inject-graphite;
       transition: ease-out;
       height: 1.5rem;
@@ -67,4 +70,11 @@
       background-color: $inject-black !important;
     }
   }
+}
+
+.active {
+  border: 4px solid $inject-graphite;
+  transition: ease-out;
+  height: 1.5rem;
+  margin: 0;
 }

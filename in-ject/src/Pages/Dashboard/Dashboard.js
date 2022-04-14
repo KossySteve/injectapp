@@ -73,7 +73,7 @@ export class Dashboard extends Component {
         </div>
         <Button
           className="dashboard__profile-btn"
-          title="☰"
+          title={this.state.showSideBar? 'x' : '☰'}
           onClick={() =>
             this.setState({ showSideBar: !this.state.showSideBar })
           }

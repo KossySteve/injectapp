@@ -1,29 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../../assets/logo/inJECT.png";
 import "./Header.scss";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import Aos from aos;
+import 'aos/dist/aos.css'
 
 
 function Header() {
- 
+  const [scrolled, setScrolled] = useState(false);
+  const changeBackgroundOnScroll = ()=> {
+    window.scrollY > 120 && setScrolled(true)
+  }
+  window.addEventListener('scroll', changeBackgroundOnScroll);
   return (
-    <section className="header">
-      <Link to="/">
+    <section  className={scrolled ? "header-red":"header"  }>
+      <NavLink activeClassName="active" to="/">
         <img className="header__logo" src={Logo} alt="logo" />
-      </Link>
+      </NavLink>
       <div className="header__container">
-        <Link to="/" className='header__button'>
+        <NavLink activeClassName="" to="/dashboard" className='header__button'>
           See Jobs
-        </Link>
-        <Link to="/dashboard/postjob" className='header__button'>
+        </NavLink>
+        <NavLink activeClassName="active" to="/dashboard/postjob" className='header__button'>
           Post Jobs
-        </Link>
-        <Link to="/dashboard/jobsbyyou" className='header__button'>
+        </NavLink>
+        <NavLink activeClassName="active" to="/dashboard/jobsbyyou" className='header__button'>
           Jobs By You
-        </Link>
-        <Link to="/aboutus" className='header__button'>
+        </NavLink>
+        <NavLink activeClassName="active" to="/aboutus" className='header__button'>
           About
-        </Link>
+        </NavLink>
       </div>
    
     </section>

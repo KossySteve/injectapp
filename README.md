@@ -30,7 +30,7 @@ Such functionalities include post job , find jobs, update & delete jobs through 
 - E-mail: [kossyeze@gmail.com]
 - Github: [@KossySteve](https://github.com/KossySteve)
 - Twitter: [@EzeSteve3](https://twitter.com/EzeSteve3/)
-- Linkedin: [linkedin](https://www.linkedin.com/in/steve-ez-b090ba198/)
+- Linkedin: [linkedin](https://www.linkedin.com/in/kossy-steve/)
 
 
 ## 🤝 Contributing
