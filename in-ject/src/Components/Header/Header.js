@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import Logo from "../../assets/logo/inJECT.png";
 import "./Header.scss";
 import { NavLink } from "react-router-dom";
-import Aos from aos;
-import 'aos/dist/aos.css'
+//import Aos from aos;
+//import 'aos/dist/aos.css'
 
 
 function Header() {
