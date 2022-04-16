@@ -9,12 +9,12 @@ import { NavLink } from "react-router-dom";
 function Header() {
   const [scrolled, setScrolled] = useState(false);
   const changeBackgroundOnScroll = ()=> {
-    window.scrollY > 120 && setScrolled(true)
+    window.scrollY > 120 ? setScrolled(true) : setScrolled(false)
   }
   window.addEventListener('scroll', changeBackgroundOnScroll);
   return (
-    <section  className={scrolled ? "header-red":"header"  }>
-      <NavLink activeClassName="active" to="/">
+    <section  className={scrolled ? "header--scrolled":"header"  }>
+      <NavLink to="/">
         <img className="header__logo" src={Logo} alt="logo" />
       </NavLink>
       <div className="header__container">

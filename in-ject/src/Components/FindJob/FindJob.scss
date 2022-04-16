@@ -13,17 +13,18 @@
       }
     }
     &-card {
-      background-color: $inject-graphite;
+      background-color: $inject-black;
+      opacity: 0.8;
       border-radius: 10px;
       padding: 1rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-direction: column;
-      font-size: smaller;
+      font-size: 0.9rem;
       box-sizing: border-box;
       margin: 1rem 0;
-      //text-align: center;
+      text-align: left;
 
       @include tablet {
         width: 100%;
@@ -37,6 +38,7 @@
       padding: 10px 0 0;
       margin: 0;
       color: $inject-indigo;
+      
     }
     &-text {
       font-size: 0.95rem;

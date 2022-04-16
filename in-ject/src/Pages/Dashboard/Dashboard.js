@@ -65,15 +65,19 @@ export class Dashboard extends Component {
               />
             </Switch>
           </div>
-          <div className={ this.state.showSideBar ? `dashboard__profile` : `dashboard__profile--close` }>
-         
-              <Profile userInfo={this.state.userInfo} />
-          
+          <div
+            className={
+              this.state.showSideBar
+                ? `dashboard__profile`
+                : `dashboard__profile--close`
+            }
+          >
+            <Profile userInfo={this.state.userInfo} />
           </div>
         </div>
         <Button
           className="dashboard__profile-btn"
-          title={this.state.showSideBar? 'x' : '☰'}
+          title={this.state.showSideBar ? "x" : "☰"}
           onClick={() =>
             this.setState({ showSideBar: !this.state.showSideBar })
           }

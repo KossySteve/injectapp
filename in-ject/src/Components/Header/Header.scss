@@ -6,27 +6,33 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: $inject-black;
+  color: $inject-black;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 10;
+  // margin: 0;
+  //padding-left: 2rem;
 
   @include tablet {
+    //padding: 0;
     flex-direction: row;
     align-items: middle;
     justify-content: space-between;
   }
   @include desktop {
   }
-  &-red{
+  &--scrolled {
     @extend .header;
-    background-color: red;
+    background-color: $inject-black;
+    color: $white;
+    transition: background-color 2s ease;
   }
 
   &__logo {
-    margin: 1rem 1.2rem 0;
-    width: 8rem;
+    //margin: 1rem 1.2rem 0;
+    width: 100%;
+    height: 100%;
 
     @include tablet {
       margin-top: 0;
@@ -37,7 +43,6 @@
     width: 100%;
     display: flex;
     padding: 2rem 0;
-
     @include tablet {
       justify-content: space-between;
       width: 50%;
@@ -47,23 +52,20 @@
   &__button {
     width: 100%;
     height: 2rem;
-    color: $white;
-    background-color: $inject-black;
+    color: $inject-graphite;
+    white-space: nowrap;
+    // background-color: $inject-black;
     border-radius: 50px;
-    font-size: 0.92rem;
+    font-size: 1.2rem;
     display: flex;
     justify-content: center;
     align-items: center;
-
     @include tablet {
       width: 20%;
     }
 
     &:hover {
-      border: 4px solid $inject-graphite;
-      transition: ease-out;
-      height: 1.5rem;
-      margin: 0;
+      color: $inject-indigo;
     }
 
     &--active {
