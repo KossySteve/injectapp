@@ -10,7 +10,7 @@
   display: block;
   width: 100%;
   height: 2.25rem;
-  padding: 0 4rem;
+  padding: 0 1rem;
   color: $inject-black;
   border: 2px solid $inject-black;
   border-radius: 20px;
@@ -18,8 +18,13 @@
   box-sizing: border-box;
  
   @include tablet {
+    padding: 0 4rem;
     width: 100%;
     height: 2.375rem;
+  }
+  @include desktop {
+    padding: 0 4rem;
+
   }
 
   &::placeholder {

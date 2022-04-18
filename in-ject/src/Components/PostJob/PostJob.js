@@ -98,6 +98,7 @@ function PostJob({ userInfo }) {
               type="reset"
               value="Cancel"
               className="button button--reset"
+              onClick={(e)=>e.target.reset()}
             />
           </div>
           <div className="form__button-right">

@@ -42,9 +42,6 @@ export class Dashboard extends Component {
       <section>
         <div className="dashboard">
           <div className="dashboard__main">
-            <h2 className="dashboard__heading">
-              {`Welcome ${this.state.userInfo.position} ${this.state.userInfo.name}`}{" "}
-            </h2>
             <Switch>
               <Route
                 path="/dashboard"

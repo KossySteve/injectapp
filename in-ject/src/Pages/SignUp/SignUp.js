@@ -4,7 +4,7 @@ import Button from "../../Components/Button/Button";
 import Label from "../../Components/Label/Label";
 import "./SignUp.scss";
 import axios from "axios";
-import {formNotValid} from "../../utils/functions";
+import { formNotValid } from "../../utils/functions";
 import Swal from "sweetalert2";
 
 function SignUp(props) {
@@ -39,25 +39,31 @@ function SignUp(props) {
       <div className="form form--signup">
         <section className="form__container">
           <h2 className="form__title">Sign Up</h2>
-          <p className="form__subtitle h4">
+          <p className="form__subtitle h3">
             Register to become part of the iN-JECT Community
           </p>
-          <div className="form__input">
+         
+          <div className="form__input form__input--pair">
+            <div>
             <Label title="First Name" />
             <Input name="firstName" />
-          </div>
-          <div className="form__input">
+            </div>
+            <div>
             <Label title="Last Name" />
             <Input name="lastName" />
+            </div>
           </div>
-          <div className="form__input">
-            <Label title="Email" />
-            <Input type="email" name="email" />
+          <div className="form__input form__input--pair">
+            <div>
+              <Label title="Email" />
+              <Input type="email" name="email" />
+            </div>
+            <div>
+              <Label title="Phone" />
+              <Input name="phone" />
+            </div>
           </div>
-          <div className="form__input">
-            <Label title="Phone" />
-            <Input name="phone" />
-          </div>
+      
           <div className="form__input">
             <Label title="Position" />
             <Dropdown
@@ -65,14 +71,17 @@ function SignUp(props) {
               name="position"
             />
           </div>
-          <div className="form__input">
+          <div className="form__input form__input--pair">
+            <div>
             <Label title="Password" />
             <Input type="password" name="password" />
-          </div>
-          <div className="form__input">
+            </div>
+            <div>
             <Label title="Confirm Password" />
             <Input name="confirmPassword" type="password" />
+            </div>
           </div>
+         
           <div className="form__input">
             <Label title="LinkedIn Url" />
             <Input name="linkedInUrl" />

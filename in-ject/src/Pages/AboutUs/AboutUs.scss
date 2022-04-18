@@ -1,41 +1,25 @@
 @use "../../styles/partials/colors" as *;
 @use "../../styles/partials/mixins" as *;
 
-.image-container {
-  display: flex;
-  flex-flow: column nowrap;
-  @include desktop {
-    flex-flow: row nowrap;
-  }
-}
+.dashboard {
+  &__main-container {
+    display: flex;
+    flex-flow: column nowrap;
+    @include desktop {
+      flex-flow: row nowrap;
+    }
 
-.image-box {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  background-color: rgb(247, 247, 247);
-  border: $inject-indigo 5px solid;
-  box-sizing: border-box;
-  margin-top: 8rem;
+    &-box {
+      width: 50%;
 
-  @include tablet {
-    margin-top: 4rem;
+      @include tablet {
+        margin-top: 0;
+      }
+    }
   }
-  
-  @include desktop {
-    margin-top: 0;
-  }
-}
-.image {
-width: 100%;  
-}
-
-.text-box {
-  padding: 0 3rem;
-  margin-top: -4rem;
-  text-align: center;
-  @include tablet {
-    margin-top: 0;
+  &__article {
+    width: 80%;
+    margin: 2rem auto;
+    text-align: center;
   }
 }

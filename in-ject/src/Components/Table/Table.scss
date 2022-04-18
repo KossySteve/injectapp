@@ -6,12 +6,19 @@
   &__data {
     text-align: left;
     border-bottom: 1px solid #ddd;
+    & > * {
+      margin: 0;
+      padding: 0;
+    }
+    &--contacts {
+      border-left: 1px solid $white;
+      padding-left: 1rem;
+      @include tablet {
+      }
+    }
   }
-  &--contacts {
-    display: flex;
-    flex-direction: column;
-  }
+
   &__row:hover {
-    background-color: $inject-graphite;
+    background-color: rgb(37, 36, 36);
   }
 }

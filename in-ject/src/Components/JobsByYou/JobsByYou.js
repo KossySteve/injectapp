@@ -5,7 +5,12 @@ import axios from "axios";
 import Button from "../Button/Button";
 import Table from "../Table/Table";
 import Swal from "sweetalert2";
+
+import View from "../../assets/icons/arrow_drop_down-24px.svg";
+import Edit from "../../assets/icons/edit-24px.svg";
+import Del from "../../assets/icons/delete_outline-24px.svg";
 import { getReq, apiUrlJobs } from "../../utils/functions";
+import Modal from "../Modal/Modal";
 
 export class JobsByYou extends Component {
   state = {
@@ -23,7 +28,7 @@ export class JobsByYou extends Component {
       .then((res) => {
         this.setState({
           applicants: res.data,
-          showApplicantTable: !this.state.showApplicantTable,
+          showApplicantTable: true,
         });
       })
       .catch((err) => {
@@ -71,6 +76,7 @@ export class JobsByYou extends Component {
       <div>Jobs are Loading...</div>
     ) : (
       <section>
+        <h2 className="dashboard__heading">Jobs Posts By You</h2>
         {this.state.myJobs.length ? (
           this.state.myJobs.map((job, index) => (
             //include time of posting to database
@@ -81,39 +87,57 @@ export class JobsByYou extends Component {
               </h4>
               <div className="post__btns">
                 <Button
-                  title="View"
+                  className="post__btn"
+                  title={<img src={View} className="filterit" />}
                   onClick={() => this.viewApplicants(job.id)}
                 />
-                <Button title="Edit" onClick={() => this.updateJob(job)} />
-                <Button title="Delete" onClick={() => this.deleteJob(job.id)} />
+                <Button
+                  className="post__btn"
+                  title={<img src={Edit} className="filterit" />}
+                  onClick={() => this.updateJob(job)}
+                />
+                <Button
+                  className="post__btn"
+                  title={<img src={Del} className="filterit" />}
+                  onClick={() => this.deleteJob(job.id)}
+                />
               </div>
             </div>
           ))
         ) : (
-          <h2>No Jobs Posted</h2>
+          <h2 className="post__text">No Jobs Posted...</h2>
         )}
         {this.state.showApplicantTable &&
           (this.state.applicants.length ? (
-            <table className="table">
-              <thead>
-                <tr className="table__row">
-                  <th className="table__heading">Applicant</th>
-                  <th className="table__heading">Contact</th>
-                </tr>
-              </thead>
-              <tbody>
-                {this.state.applicants.map((applicant, index) => (
-                  <Table
-                    name={applicant.name}
-                    email={applicant.email}
-                    phone={applicant.phone}
-                    linkedInUrl={applicant.linkedInUrl}
-                    resumeUrl={applicant.resumeUrl}
-                    key={index}
-                  />
-                ))}
-              </tbody>
-            </table>
+            <Modal
+              closeModal={() =>
+                this.setState({
+                  showApplicantTable: false,
+                })
+              }
+              content={
+                <table className="table">
+                  <thead>
+                    <tr className="table__row">
+                      <th className="table__heading">Applicant</th>
+                      <th className="table__heading">Contact</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {this.state.applicants.map((applicant, index) => (
+                      <Table
+                        name={applicant.name}
+                        email={applicant.email}
+                        phone={applicant.phone}
+                        linkedInUrl={applicant.linkedInUrl}
+                        resumeUrl={applicant.resumeUrl}
+                        key={index}
+                      />
+                    ))}
+                  </tbody>
+                </table>
+              }
+            />
           ) : (
             <h2>No Applicants</h2>
           ))}

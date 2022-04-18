@@ -4,25 +4,36 @@
 
 .dashboard {
   display: flex;
+  background-image: url("../../assets/images/aboutus.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: 50% 30%;
+  background-attachment: fixed;
+  background-attachment: fixed;
+  background-color: #f7f7f7;
+  color: $white;
   flex-flow: column nowrap;
-  margin-top: 8rem;
+  margin-top: 2rem;
   padding-top: 45vh;
   @include tablet {
+    padding-top: 40vh;
+    padding-bottom: 0;
     flex-flow: row nowrap;
+    background-size: 60%;
+    background-position: 50% 45%;
   }
   &__main {
     width: 100%;
     box-sizing: border-box;
     background-color: $inject-black-op;
     //border: $inject-indigo 5px solid;
-    margin-top: -6.75rem;
-    margin-bottom: 1rem;
+    margin-top: -4.75rem;
+    //margin-bottom: 1rem;
     @include tablet {
       padding: 0 2rem;
       display: flex;
       flex-direction: column;
       margin: 0;
-     
     }
     @include desktop {
       display: block;

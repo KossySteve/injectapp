@@ -35,7 +35,7 @@ function Login(props) {
     <form onSubmit={handleLogin}>
       <div className="form form--login">
         <section className="form__container">
-          <h2 className="form__subtitles">Login Up</h2>
+          <h2 className="form__subtitles">Login</h2>
 
           <div className="form__input">
             <Label title="Email" />
