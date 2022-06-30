@@ -1,5 +1,6 @@
 import React from "react";
 import image from "../../assets/images/aboutus.png";
+import Footer from "../../Components/Footer/Footer";
 import "./AboutUs.scss";
 function AboutUs() {
   return (
@@ -21,7 +22,9 @@ function AboutUs() {
           </div>
         </div>
       </div>
+      <Footer />
     </section>
+ 
   );
 }
 

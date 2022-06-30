@@ -11,6 +11,7 @@ import Swal from "sweetalert2";
 function Login(props) {
   const handleLogin = (e) => {
     e.preventDefault();
+    console.log("working")
 
     let user = {
       email: e.target.email.value,
@@ -50,7 +51,12 @@ function Login(props) {
       </div>
       <div className="form__button-box">
         <div className="form__button-left">
-          <Button title="Cancel" />
+        <input
+              type="reset"
+              value="Cancel"
+              className="button button--reset"
+              onClick={(e)=>e.target.reset()}
+            />
         </div>
         <div className="form__button-right">
           <Button title="Submit" />

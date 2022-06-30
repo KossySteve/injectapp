@@ -23,7 +23,7 @@ function SignUp(props) {
     e.target.password.value !== e.target.confirmPassword.value
       ? Swal.fire("Failed to upload, complete form correctly")
       : axios
-          .post("http://localhost:5050/users", newUser)
+          .post("http://localhost:5050", newUser)
           .then((res) => {
             Swal.fire("You registeration on iN-JECT was succesful");
             props.history.push("/login");

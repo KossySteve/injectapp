@@ -3,13 +3,14 @@ import axios from "axios";
 import Button from "../Button/Button";
 import Input, { Dropdown, Textarea } from "../Input/Input";
 import Label from "../Label/Label";
-import {formNotValid} from "../../utils/functions";
+import { formNotValid } from "../../utils/functions";
 import Swal from "sweetalert2";
 import { useLocation, useHistory } from "react-router-dom";
 
 function UpdateJob(props) {
   const location = useLocation();
   const history = useHistory();
+  //location carries state from edit on posted jobs
   const [jobdetails, setJobdetails] = useState(location.state[0]);
 
   const handleChange = (e) => {
@@ -18,11 +19,12 @@ function UpdateJob(props) {
 
   const submitJobEditHandler = (e) => {
     e.preventDefault();
+    console.log(jobdetails);
     delete jobdetails.updated_at;
-    delete jobdetails.id;
-console.log(jobdetails);
+   // delete jobdetails.id;
+    console.log(jobdetails);
     formNotValid(jobdetails)
-      ? Swal.fire("Failed to upload, complete form correctly")
+      ? Swal.fire("Failed to upload, complete details correctly")
       : axios
           .put(`http://localhost:5050/jobs/${location.state[0].id}`, jobdetails)
           .then((res) => {
