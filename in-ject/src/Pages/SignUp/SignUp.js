@@ -4,7 +4,7 @@ import Button from "../../Components/Button/Button";
 import Label from "../../Components/Label/Label";
 import "./SignUp.scss";
 import axios from "axios";
-import { formNotValid } from "../../utils/functions";
+import { formNotValid, apiUrlUsers } from "../../utils/functions";
 import Swal from "sweetalert2";
 
 function SignUp(props) {
@@ -23,7 +23,7 @@ function SignUp(props) {
     e.target.password.value !== e.target.confirmPassword.value
       ? Swal.fire("Failed to upload, complete form correctly")
       : axios
-          .post("http://localhost:5050", newUser)
+          .post(apiUrlUsers(""), newUser)
           .then((res) => {
             Swal.fire("You registeration on iN-JECT was succesful");
             props.history.push("/login");
