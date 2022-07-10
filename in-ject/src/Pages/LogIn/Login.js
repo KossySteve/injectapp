@@ -27,7 +27,7 @@ function Login(props) {
             props.history.push("/");
           })
           .catch((err) => {
-            Swal.fire("Failed to Login, details may be wrong")
+            Swal.fire("Failed to Login, details may be wrong !")
           });
     e.target.reset();
   };
