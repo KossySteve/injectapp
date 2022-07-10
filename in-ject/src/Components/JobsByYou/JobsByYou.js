@@ -139,7 +139,7 @@ export class JobsByYou extends Component {
               }
             />
           ) : (
-            <h2>No Applicants</h2>
+            <h2>No applicants yet!</h2>
           ))}
       </section>
     );

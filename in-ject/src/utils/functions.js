@@ -1,4 +1,6 @@
-const url = "http://localhost:5050";
+//const url = "http://localhost:5050";
+const url = "https://inject-app.herokuapp.com";
+
 export const formNotValid = (uploadData) =>
   Object.values(uploadData).includes("");
 

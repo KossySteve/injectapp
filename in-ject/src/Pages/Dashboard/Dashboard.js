@@ -5,7 +5,7 @@ import PostJob from "../../Components/PostJob/PostJob";
 import FindJob from "../../Components/FindJob/FindJob";
 import Profile from "../../Components/Profile/Profile";
 import JobsByYou from "../../Components/JobsByYou/JobsByYou";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import UpdateJob from "../../Components/UpdateJob/UpdateJob";
 import { apiUrlUsers } from "../../utils/functions";
 import Button from "../../Components/Button/Button";
@@ -60,6 +60,7 @@ export class Dashboard extends Component {
                 path="/dashboard/updatejob"
                 render={() => <UpdateJob userInfo={this.state.userInfo} />}
               />
+              <Redirect from="/dashboard/" to="/dashboard" />
             </Switch>
           </div>
           <div

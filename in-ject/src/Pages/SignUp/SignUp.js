@@ -25,7 +25,7 @@ function SignUp(props) {
       : axios
           .post(apiUrlUsers(""), newUser)
           .then((res) => {
-            Swal.fire("You registeration on iN-JECT was succesful");
+            Swal.fire("Your registration on iN-JECT was succesful");
             props.history.push("/login");
           })
           .catch((err) => {
